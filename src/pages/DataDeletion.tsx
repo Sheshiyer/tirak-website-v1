@@ -112,24 +112,23 @@ export function DataDeletion() {
     setErrors(prev => ({ ...prev, submit: undefined })); // Clear any previous submit errors
 
     try {
-      // Simulate API call with potential failure
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // Simulate random failure for demonstration (remove in production)
-          if (Math.random() > 0.8) {
-            reject(new Error('Network error'));
-          } else {
-            resolve(true);
-          }
-        }, 2000);
+      const fd = new FormData();
+      fd.set('email', formData.email.trim());
+      fd.set('reason', formData.reason);
+      fd.set('specificReason', formData.specificReason.trim());
+      fd.set('dataTypes', formData.dataTypes.join(','));
+      fd.set('additionalInfo', formData.additionalInfo.trim());
+      fd.set('_subject', 'Data Deletion Request');
+      const res = await fetch('https://formspree.io/f/xeorzjly', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: fd,
       });
-      
-      console.log('Data deletion request submitted:', {
-        ...formData,
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent
-      });
-      
+      const result = await res.json();
+      if (!res.ok) {
+        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : `Server error: ${res.status}`;
+        throw new Error(msg);
+      }
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -156,6 +155,7 @@ export function DataDeletion() {
         <SEO 
           title="Data Deletion Request Submitted - Tirak"
           description="Your data deletion request has been successfully submitted. We will process your request within 30 days."
+          canonical="https://tirak.app/data-deletion"
         />
         
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -213,6 +213,7 @@ export function DataDeletion() {
       <SEO 
         title="Data Deletion Request - Tirak Privacy Center"
         description="Request deletion of your personal data from Tirak. Submit a secure form to permanently remove your information from our systems."
+        canonical="https://tirak.app/data-deletion"
       />
       
       <div className="min-h-screen pt-24 pb-16">
@@ -257,7 +258,7 @@ export function DataDeletion() {
 
             {/* Form */}
             <div className="glass-card rounded-xl shadow-elevated p-8 border border-border">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6">
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-contrast mb-2">

@@ -69,12 +69,14 @@ const FinalCTA = () => {
 
               {/* Enhanced Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center items-center">
-                <Link
-                  to="/download"
+                <a
+                  href="https://tirak.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`group glass-card hover-lift hover-glow transition-all duration-300 hover:scale-105 p-3 sm:p-4 rounded-2xl focus-ring will-change-transform hardware-accelerated ${
                     bounceAnimation ? 'animate-bounce' : ''
                   }`}
-                  aria-label="Download Tirak app on the App Store"
+                  aria-label="Open Tirak iOS PWA"
                 >
                   <div className="flex items-center space-x-3 px-2 sm:px-4 py-2">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
@@ -83,11 +85,11 @@ const FinalCTA = () => {
                       </svg>
                     </div>
                     <div className="text-left">
-                      <div className="text-xs text-contrast-secondary">Download on the</div>
-                      <div className="text-sm sm:text-base font-semibold text-contrast">App Store</div>
+                      <div className="text-xs text-contrast-secondary">Open on iOS</div>
+                      <div className="text-sm sm:text-base font-semibold text-contrast">PWA</div>
                     </div>
                   </div>
-                </Link>
+                </a>
                 
                 <Link
                   to="/download"

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import AdaptiveLogo from './AdaptiveLogo';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,7 +64,7 @@ const Header = () => {
                 </Link>
               )
             ))}
-            <ThemeToggle />
+            
           </div>
 
           {/* Download App Button */}

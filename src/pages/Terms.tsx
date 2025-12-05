@@ -7,6 +7,7 @@ const Terms = () => {
       <SEO 
         title="Terms & Conditions - Tirak Travel Companion Service"
         description="Read Tirak's terms and conditions for using our travel companion marketplace. User agreements, service guidelines, and legal terms for travelers and guides."
+        canonical="https://tirak.app/terms"
       />
       
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-surface/20 py-16 px-4">

@@ -5,6 +5,9 @@ type SEOProps = {
   description?: string;
   canonical?: string;
   noindex?: boolean;
+  openGraph?: Record<string, string>;
+  twitter?: Record<string, string>;
+  jsonLd?: object | object[];
 };
 
 const setMeta = (name: string, content: string, attr: 'name' | 'property' = 'name') => {
@@ -17,7 +20,7 @@ const setMeta = (name: string, content: string, attr: 'name' | 'property' = 'nam
   el.setAttribute('content', content);
 };
 
-export default function SEO({ title, description, canonical, noindex }: SEOProps) {
+export default function SEO({ title, description, canonical, noindex, openGraph, twitter, jsonLd }: SEOProps) {
   useEffect(() => {
     if (title) document.title = title;
     if (description) setMeta('description', description);
@@ -31,7 +34,23 @@ export default function SEO({ title, description, canonical, noindex }: SEOProps
       }
       link.setAttribute('href', canonical);
     }
-  }, [title, description, canonical, noindex]);
+    if (openGraph) {
+      Object.entries(openGraph).forEach(([k, v]) => setMeta(k, v, 'property'));
+    }
+    if (twitter) {
+      Object.entries(twitter).forEach(([k, v]) => setMeta(k, v, 'name'));
+    }
+    if (jsonLd) {
+      const blocks = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+      blocks.forEach((obj) => {
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(obj);
+        document.head.appendChild(script);
+      });
+    }
+  }, [title, description, canonical, noindex
+  , openGraph, twitter, jsonLd]);
 
   return null;
 }

@@ -1,20 +1,26 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Download as DownloadIcon } from "lucide-react";
+import { Smartphone, Download as DownloadIcon, Sparkles } from "lucide-react";
 import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 
-// Update these URLs to your real store listings
-const APP_STORE_URL = "https://testflight.apple.com/join/hCR6HDud";
-const PLAY_STORE_URL = "https://expo.dev/accounts/thoughtseedlabs/projects/tirak-companion-marketplace/builds/0030f11b-ba99-4bd7-a642-f7d369808b8e";
+// Store listings and iOS PWA URL
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tirak.pineapple";
+const IOS_PWA_URL = "https://tirak.netlify.app";
+const PWA_GUIDE_ANCHOR = "#ios-pwa-guide";
+const IOS_TIMELINE = import.meta.env.VITE_IOS_NATIVE_TIMELINE ?? "Pending App Store approval";
+const HYPE_METRIC = import.meta.env.VITE_HYPE_METRIC ?? "1K+";
 
 type Platform = "ios" | "android" | "other";
 
 const detectPlatform = (): Platform => {
-  const ua = navigator.userAgent || (navigator as any).vendor || (window as any).opera || "";
-  const isAndroid = /Android/i.test(ua);
-  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && (navigator as any).maxTouchPoints > 1);
+  const ua = navigator.userAgent ?? "";
+  const vendor = (navigator as Navigator & { vendor?: string }).vendor ?? "";
+  const opera = (window as Window & { opera?: string }).opera ?? "";
+  const source = ua || vendor || opera;
+  const isAndroid = /Android/i.test(source);
+  const isIOS = /iPhone|iPad|iPod/i.test(source) || (navigator.platform === "MacIntel" && (navigator.maxTouchPoints ?? 0) > 1);
   if (isIOS) return "ios";
   if (isAndroid) return "android";
   return "other";
@@ -37,7 +43,7 @@ const Download = () => {
   }, [overridePlatform]);
 
   useEffect(() => {
-    const iosUrl = APP_STORE_URL;
+    const iosUrl = IOS_PWA_URL;
     const androidUrl = PLAY_STORE_URL;
     let target: string | null = null;
 
@@ -57,11 +63,25 @@ const Download = () => {
 
   const platformLabel = platform === "ios" ? "iOS" : platform === "android" ? "Android" : "your device";
 
+  const trackPwaEvent = (action: string, label?: string) => {
+    const entry = { event: "pwa_install", action, label, timestamp: new Date().toISOString() };
+    try {
+      const logs = JSON.parse(localStorage.getItem("tirak-pwa-events") || "[]");
+      logs.push(entry);
+      localStorage.setItem("tirak-pwa-events", JSON.stringify(logs));
+    } catch { void 0 }
+    const dl = (window as Window & { dataLayer?: unknown[] }).dataLayer;
+    if (typeof window !== "undefined" && Array.isArray(dl)) {
+      dl.push({ event: "pwa_install", ...entry });
+    }
+  };
+
   return (
     <>
       <SEO 
         title="Download Tirak - Dream Journal & Lucid Dreaming App"
         description="Download Tirak for iOS and Android. Start your lucid dreaming journey with our comprehensive dream journal and reality check features."
+        canonical="https://tirak.app/download"
       />
       
       <div className="min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900" style={{ marginTop: 'clamp(5em, 10vh, 9em)' }}>
@@ -69,34 +89,42 @@ const Download = () => {
           <div className="max-w-4xl mx-auto">
             <div className="glass-card p-8 md:p-12">
               {/* Header Section */}
-              <div className="text-center mb-12">
-                <div className="inline-block bg-gradient-to-r from-accent-400 to-secondary-400 bg-clip-text text-transparent mb-4">
-                  <h1 className="text-4xl md:text-5xl font-inter font-bold">
-                    Download Tirak
-                  </h1>
-                </div>
+                <div className="text-center mb-12">
+                  <div className="inline-block bg-gradient-to-r from-accent-400 to-secondary-400 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-4xl md:text-5xl font-inter font-bold">
+                      Download Tirak
+                    </h1>
+                  </div>
                 <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-                  Start your tirak journey today. Available on iOS and Android.
+                  Start your Tirak journey today. Available on Android; iOS currently via PWA.
                 </p>
                 <p className="text-lg text-text-secondary/80 mt-2">
                   We detected {platformLabel}. If supported, you will be redirected automatically.
                 </p>
-              </div>
+                {/* Hype banner */}
+                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white shadow-sm">
+                  <Sparkles className="w-4 h-4" aria-hidden="true" />
+                  <span className="text-sm">Over {HYPE_METRIC} engagements in the first week</span>
+                </div>
+                </div>
 
               {/* Download Links Section */}
               <div className="space-y-8">
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <a
-                    href={APP_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group glass-card hover-lift hover-glow transition-all duration-300 hover:scale-105 p-4 rounded-2xl focus-ring will-change-transform hardware-accelerated"
-                  >
-                    <img
-                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                      alt="Download on App Store"
-                      className="h-14 w-auto rounded-xl"
-                    />
+                {/* iOS: Install PWA CTA */}
+                <a
+                  href={IOS_PWA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackPwaEvent("cta_click", "ios_pwa_install")}
+                  className="group glass-card hover-lift hover-glow transition-all duration-300 hover:scale-105 px-6 py-4 rounded-2xl focus-ring will-change-transform hardware-accelerated inline-flex items-center gap-3"
+                  aria-label="Open Tirak iOS PWA"
+                >
+                    <Smartphone className="w-6 h-6" aria-hidden="true" />
+                    <div className="text-left">
+                      <div className="text-base font-semibold">Open iOS PWA</div>
+                      <div className="text-sm text-text-secondary">Quick guide below</div>
+                    </div>
                   </a>
 
                   <a
@@ -106,39 +134,77 @@ const Download = () => {
                     className="group glass-card hover-lift hover-glow transition-all duration-300 hover:scale-105 p-4 rounded-2xl focus-ring will-change-transform hardware-accelerated"
                   >
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                       alt="Get it on Google Play"
                       className="h-14 w-auto rounded-xl"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </a>
                 </div>
 
               
 
-                {/* Call to Action */}
+                {/* Platform-specific CTA buttons */}
                 <div className="text-center mt-8">
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="rounded-xl group inline-flex items-center gap-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-elevated focus-ring"
-                  >
-                    <Link to="/" aria-label="Explore Trial">
-                      Explore Trial
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="transition-transform duration-300 group-hover:translate-x-0.5"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </Link>
-                  </Button>
+                  {platform === "ios" ? (
+                    <Button
+                      asChild
+                      variant="default"
+                      size="lg"
+                      className="rounded-xl group inline-flex items-center gap-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-elevated focus-ring"
+                    >
+                      <a href={IOS_PWA_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackPwaEvent("cta_click_primary", "ios_pwa_install")}>Open iOS PWA</a>
+                    </Button>
+                  ) : null}
                 </div>
               </div>
+
+              {/* iOS Availability Messaging */}
+              <div className="mt-12">
+                <h2 className="text-2xl md:text-3xl font-inter font-bold text-contrast">Currently available as PWA for iOS users</h2>
+                <p className="mt-2 text-text-secondary">Native iOS app is {IOS_TIMELINE}. In the meantime, install our PWA for a fast, secure experience on iPhone and iPad.</p>
+              </div>
+
+              {/* iOS/PWA Section */}
+              <section id="ios-pwa-guide" className="mt-10">
+                <h3 className="text-xl md:text-2xl font-semibold">Install Tirak PWA on iOS</h3>
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <figure className="glass-card p-4 rounded-xl">
+                    <img src="/src/assets/guide-1.jpg" alt="Open Tirak in Safari" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
+                    <figcaption className="mt-2 text-sm text-text-secondary">1. Open Tirak in Safari</figcaption>
+                  </figure>
+                  <figure className="glass-card p-4 rounded-xl">
+                    <img src="/src/assets/guide-2.jpg" alt="Tap the Share icon" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
+                    <figcaption className="mt-2 text-sm text-text-secondary">2. Tap the Share icon</figcaption>
+                  </figure>
+                  <figure className="glass-card p-4 rounded-xl">
+                    <img src="/src/assets/guide-3.jpg" alt="Select Add to Home Screen" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
+                    <figcaption className="mt-2 text-sm text-text-secondary">3. Select "Add to Home Screen"</figcaption>
+                  </figure>
+                </div>
+
+
+                {/* FAQ */}
+                <div className="mt-8">
+                  <h4 className="text-lg font-semibold">FAQ for iOS users</h4>
+                  <ul className="mt-3 space-y-2 text-text-secondary">
+                    <li><strong>Is the PWA safe?</strong> Yes. It runs in Safari with the same security model as the browser.</li>
+                    <li><strong>Can I get notifications?</strong> Not currently via PWA on iOS. We’ll add native support post-approval.</li>
+                    <li><strong>Does it work offline?</strong> Some content is cached. For full offline features, the native app will provide more.</li>
+                  </ul>
+                </div>
+
+                {/* Performance Tips */}
+                <div className="mt-8">
+                  <h4 className="text-lg font-semibold">Performance tips</h4>
+                  <ul className="mt-3 list-disc list-inside text-text-secondary">
+                    <li>Use Safari for the best iOS PWA experience.</li>
+                    <li>Ensure a stable connection for initial load; assets are cached afterward.</li>
+                    <li>Add to Home Screen to enable full-screen, app-like experience.</li>
+                  </ul>
+                </div>
+              </section>
             </div>
           </div>
         </div>

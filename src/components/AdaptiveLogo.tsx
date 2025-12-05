@@ -1,5 +1,5 @@
 import React from 'react';
-import tirakLogo from '../assets/logos/tirak-logo.png';
+// Logo image removed per request; component now renders nothing.
 
 interface AdaptiveLogoProps {
   className?: string;
@@ -24,30 +24,7 @@ const AdaptiveLogo: React.FC<AdaptiveLogoProps> = ({
     dark: 'logo-dark-backdrop'
   };
 
-  return (
-    <div className={`relative inline-block ${className}`}>
-      {/* Backdrop for better contrast */}
-      {variant !== 'default' && (
-        <div className={`absolute inset-0 rounded-lg ${variantClasses[variant]} -z-10`} />
-      )}
-      
-      {/* Logo image */}
-      <img
-        src={tirakLogo}
-        alt="Tirak Logo"
-        className={`
-          ${sizeClasses[size]} 
-          object-contain 
-          transition-all 
-          duration-300 
-          hover:scale-110 
-          hover:rotate-3
-          relative
-          z-10
-        `}
-      />
-    </div>
-  );
+  return null;
 };
 
 export default AdaptiveLogo;

@@ -1,13 +1,27 @@
 // Signup API (stubbed): removes Google Sheets integration for security and performance.
 // This endpoint performs basic validation and returns success without external calls.
 
-function cors(res: any) {
+type Req = {
+  method: string;
+  body?: unknown;
+  headers: Record<string, string | string[] | undefined>;
+  socket?: { remoteAddress?: string };
+};
+
+type Res = {
+  setHeader: (name: string, value: string) => void;
+  status: (code: number) => Res;
+  json: (obj: unknown) => unknown;
+  end: () => unknown;
+};
+
+function cors(res: Res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: Req, res: Res) {
   cors(res);
 
   if (req.method === "OPTIONS") {
@@ -18,13 +32,13 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  let body: any = {};
+  let body: unknown = {};
   try {
     body = typeof req.body === "string" ? JSON.parse(req.body) : req.body || {};
   } catch {
     body = {};
   }
-  const { email, name, source, meta } = body;
+  const { email, name, source, meta } = body as Record<string, unknown>;
   if (!email) {
     return res.status(400).json({ error: "Email is required" });
   }
@@ -49,8 +63,9 @@ export default async function handler(req: any, res: any) {
     };
     console.log("Signup received:", safeLog);
     return res.status(200).json({ ok: true });
-  } catch (err: any) {
-    console.error("Signup handler failed:", err?.message || err);
+  } catch (err: unknown) {
+    const message = typeof err === 'object' && err && 'message' in err ? String((err as { message: unknown }).message) : String(err);
+    console.error("Signup handler failed:", message);
     return res.status(500).json({ error: "Failed to process signup" });
   }
 }

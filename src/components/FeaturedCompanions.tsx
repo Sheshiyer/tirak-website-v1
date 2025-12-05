@@ -34,16 +34,6 @@ const companions = [
     verified: true,
     image: guide3,
   },
-  {
-    id: 4,
-    name: 'Somchai',
-    location: 'Krabi',
-    tag: 'Nature Lover',
-    rating: 4.9,
-    reviews: 92,
-    verified: true,
-    image: guide1, // Reusing for demo
-  },
 ];
 
 const FeaturedCompanions = () => {
@@ -71,6 +61,9 @@ const FeaturedCompanions = () => {
                   alt={`${companion.name} - Local guide in ${companion.location}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="800"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

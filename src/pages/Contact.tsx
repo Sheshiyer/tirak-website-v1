@@ -147,24 +147,20 @@ const Contact: React.FC = () => {
     setErrors({});
 
     try {
-      const response = await fetch('/api/contact', {
+      const fd = new FormData(formRef.current as HTMLFormElement);
+      fd.set('_subject', `Contact: ${formData.subject.trim()}`);
+      const response = await fetch('https://formspree.io/f/xeorzjly', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          subject: formData.subject.trim(),
-          message: formData.message.trim(),
-          timestamp: new Date().toISOString()
-        }),
+        body: fd,
       });
 
       const result = await response.json();
-      
       if (!response.ok) {
-        throw new Error(result.message || `Server error: ${response.status}`);
+        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : `Server error: ${response.status}`;
+        throw new Error(msg);
       }
 
       // Success
@@ -204,6 +200,7 @@ const Contact: React.FC = () => {
       <SEO 
         title="Contact Us - Tirak Travel Companion Platform"
         description="Get in touch with Tirak for support, partnerships, or questions about our travel companion platform connecting travelers with local guides in Thailand."
+        canonical="https://tirak.app/contact"
       />
       
       <div className="container mx-auto px-6">
@@ -337,7 +334,7 @@ const Contact: React.FC = () => {
                 </div>
               )}
 
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form ref={formRef} action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* Honeypot field (hidden) */}
                 <input
                   type="text"

@@ -29,32 +29,43 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4 mt-6">
               {/* Social Media Links */}
+              {import.meta.env.VITE_FACEBOOK_ENABLED !== 'false' && (
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61584212227083" 
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span className="sr-only">Facebook</span>
+                </a>
+              )}
               <a 
-                href="#" 
+                href="https://www.instagram.com/tirak.app" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
-                aria-label="Facebook"
+                aria-label="Instagram @tirak.app"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm6.5-1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
                 </svg>
+                <span className="sr-only">Instagram handle @tirak.app</span>
               </a>
               <a 
-                href="#" 
+                href="https://www.tiktok.com/@tirak.app" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
-                aria-label="Instagram"
+                aria-label="TikTok @tirak.app"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297L3.182 17.635l1.944-1.944c-.807-.875-1.297-2.026-1.297-3.323s.49-2.448 1.297-3.323L3.182 7.101l1.944-1.944c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297l1.944 1.944-1.944 1.944c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323l1.944 1.944-1.944 1.944c-.875.807-2.026 1.297-3.323 1.297z"/>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15.5 3c.7 1.9 2.1 3.4 4 3.9v3.1c-1.7-.2-3.3-.9-4.6-2v6.3c0 3.7-2.5 6.7-6.2 6.7-3.3 0-5.7-2.7-5.7-5.9 0-3.1 2.3-5.6 5.3-5.9v3.2c-1.2.2-2.1 1.2-2.1 2.5 0 1.5 1.2 2.7 2.7 2.7 1.9 0 3.1-1.5 3.1-3.4V3h2.5z" />
                 </svg>
-              </a>
-              <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
-                aria-label="Twitter"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
+                <span className="sr-only">TikTok handle @tirak.app</span>
               </a>
             </div>
           </div>
@@ -75,10 +86,26 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/companions" 
+                  to="/tirak" 
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
                   Find Companions
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/bangkok" 
+                  className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
+                >
+                  Bangkok Guides
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/chiang-mai" 
+                  className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
+                >
+                  Chiang Mai Guides
                 </Link>
               </li>
               <li>

@@ -59,25 +59,26 @@ const TirakLanding = () => {
     setLoading(true);
     try {
       const params = new URLSearchParams(location.search);
-      const meta: Record<string, string> = {};
+      const fd = new FormData();
+      fd.set('email', email);
+      fd.set('name', name);
+      fd.set('source', 'tirak_prelaunch');
+      fd.set('referrer', typeof document !== 'undefined' ? document.referrer : '');
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(k => {
         const v = params.get(k);
-        if (v) meta[k] = v;
+        if (v) fd.set(k, v);
       });
-      const payload = {
-        email,
-        name,
-        source: 'tirak_prelaunch',
-        referrer: typeof document !== 'undefined' ? document.referrer : '',
-        meta,
-      };
-
-      const res = await fetch('/api/signup', {
+      fd.set('_subject', 'Prelaunch Signup');
+      const res = await fetch('https://formspree.io/f/xeorzjly', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Accept': 'application/json' },
+        body: fd,
       });
-      if (!res.ok) throw new Error('Signup failed');
+      const result = await res.json();
+      if (!res.ok) {
+        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : 'Signup failed';
+        throw new Error(msg);
+      }
 
       toast({ title: "You're on the list!", description: 'We will notify you at launch.' });
       setEmail('');
@@ -94,7 +95,21 @@ const TirakLanding = () => {
       <SEO 
         title="Tirak - Connect with Local Travel Companions in Thailand"
         description="Experience Thailand through the eyes of locals. Find verified companions for authentic adventures, cultural immersion, and unforgettable travel memories."
-        canonical="/tirak"
+        canonical="https://tirak.app/tirak"
+        openGraph={{
+          'og:title': 'Tirak - Connect with Local Travel Companions in Thailand',
+          'og:description': 'Experience Thailand through the eyes of locals. Find verified companions for authentic adventures and cultural immersion.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/tirak',
+          'og:image': 'https://tirak.app/og.jpg',
+          'og:image:alt': 'Connect with local travel companions in Thailand'
+        }}
+        twitter={{
+          'twitter:card': 'summary_large_image',
+          'twitter:title': 'Tirak - Connect with Local Travel Companions in Thailand',
+          'twitter:description': 'Experience Thailand with verified companions.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
       />
       {/* Hero */}
       <StreamlinedHero />
@@ -148,7 +163,7 @@ const TirakLanding = () => {
             </div>
 
             {/* Form Section - Enhanced Mobile UX */}
-            <form onSubmit={handleSignup} className="glass-card p-4 sm:p-6 lg:p-8 rounded-2xl space-y-4 sm:space-y-6 max-w-md mx-auto lg:max-w-none">
+            <form action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleSignup} className="glass-card p-4 sm:p-6 lg:p-8 rounded-2xl space-y-4 sm:space-y-6 max-w-md mx-auto lg:max-w-none">
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-contrast-secondary mb-2">

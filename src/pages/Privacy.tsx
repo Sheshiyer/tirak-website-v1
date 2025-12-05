@@ -7,7 +7,7 @@ const Privacy = () => {
       <SEO 
         title="Privacy Policy - Tirak Travel Companion Platform"
         description="Learn how Tirak protects your privacy and handles your personal data. Comprehensive privacy policy for our travel companion marketplace platform."
-        canonical="/privacy"
+        canonical="https://tirak.app/privacy"
       />
       
       <div className="min-h-screen pt-24 pb-16 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">

@@ -71,17 +71,21 @@ const StreamlinedHero = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('/api/signup', {
+      const fd = new FormData();
+      fd.set('email', email);
+      fd.set('source', 'hero_quick_signup');
+      fd.set('referrer', typeof document !== 'undefined' ? document.referrer : '');
+      fd.set('_subject', 'Hero Quick Signup');
+      const res = await fetch('https://formspree.io/f/xeorzjly', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          source: 'hero_quick_signup',
-          referrer: typeof document !== 'undefined' ? document.referrer : '',
-        }),
+        headers: { 'Accept': 'application/json' },
+        body: fd,
       });
-
-      if (!res.ok) throw new Error('Signup failed');
+      const result = await res.json();
+      if (!res.ok) {
+        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : 'Signup failed';
+        throw new Error(msg);
+      }
 
       toast({ title: "You're on the list!", description: 'We will notify you at launch.' });
       setEmail('');
@@ -101,7 +105,7 @@ const StreamlinedHero = () => {
         
         {/* Responsive Particle System */}
         <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: isMobile ? 15 : 30 }).map((_, i) => (
+          {Array.from({ length: isMobile ? 10 : 20 }).map((_, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-white/20 rounded-full animate-float"
@@ -164,7 +168,7 @@ const StreamlinedHero = () => {
             {/* Enhanced Mobile CTA Section */}
             <div className="space-y-4 sm:space-y-6">
               {/* Quick Signup Form - Mobile Optimized */}
-              <form onSubmit={handleQuickSignup} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
+              <form action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleQuickSignup} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
                 <Input
                   type="email"
                   placeholder="Enter your email"
@@ -204,6 +208,20 @@ const StreamlinedHero = () => {
                 >
                   <span>💬</span>
                   <span>Read Stories</span>
+                </Link>
+                <Link 
+                  to="/bangkok" 
+                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                >
+                  <span>🏙️</span>
+                  <span>Bangkok Guides</span>
+                </Link>
+                <Link 
+                  to="/chiang-mai" 
+                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                >
+                  <span>🏯</span>
+                  <span>Chiang Mai Guides</span>
                 </Link>
               </div>
 
