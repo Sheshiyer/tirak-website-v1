@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import AdaptiveLogo from './AdaptiveLogo';
+import tirakLogo from '@/assets/logos/tirak-logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,9 +33,12 @@ const Header = () => {
               variant="contrast"
               className="transition-transform duration-300 hover:scale-105 hover:rotate-3"
             />
-            <span className="text-2xl font-bold font-inter text-contrast">
-              Tirak
-            </span>
+            <img
+              src={tirakLogo}
+              alt="Tirak logo"
+              className="h-8 sm:h-9 w-auto select-none"
+              draggable={false}
+            />
           </div>
 
           {/* Navigation Menu */}
