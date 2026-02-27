@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirak.app | Vendor Partner Onboarding</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --background-color: #f8fafc;
+            --form-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--form-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fff;
+        }
+
+        legend {
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0 10px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-sizing: border-box;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1d4ed8;
+        }
+
+        .help-text {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            fieldset {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Join Tirak.app</h1>
+        <p>Thailand's premier platform for curated travel and lifestyle experiences. Register below to reach thousands of high-intent travelers.</p>
+    </div>
+
+    <form action="#" method="POST" enctype="multipart/form-data" id="vendorForm">
+        
+        <fieldset>
+            <legend>1. The Basics</legend>
+            <div class="form-group">
+                <label for="brandName">Trading / Brand Name *</label>
+                <input type="text" id="brandName" name="brandName" required placeholder="What do customers call you?">
+            </div>
+            <div class="form-group">
+                <label for="regName">Registered Company Name</label>
+                <input type="text" id="regName" name="regName" placeholder="For legal and billing purposes">
+            </div>
+            <div class="form-group">
+                <label for="description">Brief Description of Services *</label>
+                <textarea id="description" name="description" required placeholder="Tell us what makes your experience special..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="website">Website URL</label>
+                <input type="url" id="website" name="website" placeholder="https://...">
+            </div>
+            <div class="form-group">
+                <label for="social">Primary Social Media Link</label>
+                <input type="url" id="social" name="social" placeholder="Instagram or Facebook URL">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>2. Categorization & Offering</legend>
+            <div class="form-group">
+                <label for="primaryCategory">Primary Category *</label>
+                <select id="primaryCategory" name="primaryCategory" required>
+                    <option value="" disabled selected>Select a category...</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Wellness">Wellness</option>
+                    <option value="Nightlife">Nightlife</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Cinema">Cinema</option>
+                    <option value="Events">Events</option>
+                    <option value="Food & Drink">Food & Drink</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="priceRange">Price Range (Average Ticket Size) *</label>
+                <select id="priceRange" name="priceRange" required>
+                    <option value="" disabled selected>Select price range...</option>
+                    <option value="1">฿ (Budget-friendly)</option>
+                    <option value="2">฿฿ (Mid-range)</option>
+                    <option value="3">฿฿฿ (Premium)</option>
+                    <option value="4">฿฿฿฿ (Luxury)</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>3. Contact & Communication</legend>
+            <div class="form-group">
+                <label for="contactName">Primary Contact Person Name *</label>
+                <input type="text" id="contactName" name="contactName" required>
+            </div>
+            <div class="form-group">
+                <label for="contactRole">Role / Title *</label>
+                <input type="text" id="contactRole" name="contactRole" required placeholder="e.g., Owner, Marketing Manager">
+            </div>
+            <div class="form-group">
+                <label for="email">Contact Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label>Preferred Chat App</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="chatApp" value="LINE" checked> LINE</label>
+                    <label><input type="radio" name="chatApp" value="WhatsApp"> WhatsApp</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="chatId">Chat ID / Number *</label>
+                <input type="text" id="chatId" name="chatId" required placeholder="Enter your LINE ID or WhatsApp number">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>4. Location & Operations</legend>
+            <div class="form-group">
+                <label for="address">Full Business Address *</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="mapsUrl">Google Maps Pin URL *</label>
+                <input type="url" id="mapsUrl" name="mapsUrl" required placeholder="https://maps.app.goo.gl/...">
+            </div>
+            <div class="form-group">
+                <label for="hours">Operating Hours</label>
+                <input type="text" id="hours" name="hours" placeholder="e.g., Mon-Sun, 9 AM - 6 PM">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>5. Verification & Media</legend>
+            <div class="form-group">
+                <label for="taxId">Thai Business Registration (DBD) / Tax ID</label>
+                <input type="text" id="taxId" name="taxId" placeholder="Required for final verification">
+            </div>
+            <div class="form-group">
+                <label for="mediaUpload">Upload Photos (Optional)</label>
+                <input type="file" id="mediaUpload" name="mediaUpload" multiple accept="image/*">
+                <span class="help-text">Upload your logo and up to 3 high-res images of your experience.</span>
+            </div>
+        </fieldset>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to be contacted by the Tirak app team regarding a vendor partnership and confirm the information provided is accurate.</label>
+        </div>
+
+        <button type="submit">Submit Vendor Application</button>
+    </form>
+</div>
+
+<script>
+    // Paste your Google Web App URL inside the quotes below
+    const scriptURL = 'YOUR_WEB_APP_URL_HERE';
+    
+    const form = document.forms['vendorForm'];
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault(); // Prevents the page from redirecting
+        
+        // Change button text to show it's working
+        submitButton.innerHTML = 'Submitting...';
+        submitButton.disabled = true;
+
+        // Send the data to Google Sheets
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('Success! Your vendor application has been submitted to the Tirak team.');
+                form.reset(); // Clear the form
+                submitButton.innerHTML = 'Submit Vendor Application'; // Reset button
+                submitButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('There was an error submitting the form. Please try again.');
+                submitButton.innerHTML = 'Submit Vendor Application';
+                submitButton.disabled = false;
+            });
+    });
+</script>
+
+</body>
+</html>
