@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Calendar, MessageCircle, Star, Play, Users, DollarSign, TrendingUp } from 'lucide-react';
+import guideVideo from '@/assets/Imagine Grok Video (7).mp4';
 
 const features = [
   {
@@ -90,22 +91,15 @@ const ForLocalGuides = () => {
             <div className="relative glass-card rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
               {/* Video Background */}
               <div className="aspect-video bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
-                {/* Animated Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <div className="absolute top-8 right-8 w-3 h-3 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute bottom-6 left-8 w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                </div>
-                
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button 
-                    className="group/play w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl hover:bg-white hover:scale-110 transition-all duration-300 focus-ring"
-                    aria-label="Play guide introduction video"
-                  >
-                    <Play className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-primary ml-1 group-hover/play:scale-110 transition-transform duration-300" fill="currentColor" />
-                  </button>
-                </div>
+                <video
+                  src={guideVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aria-label="Local guide preparing Thai cuisine"
+                />
 
                 {/* Enhanced Overlay Text */}
                 <div className="absolute bottom-4 left-4 right-4">

@@ -10,6 +10,31 @@ import {
   UtensilsCrossed, ChefHat, Wine, CookingPot, Soup, IceCream,
 } from 'lucide-react';
 
+// Brand experience photo imports
+import t1Hero from '@/assets/t1.png';
+import t1Texture from '@/assets/t1.2.png';
+import t1Aerial from '@/assets/t1.3.png';
+import t2Hero from '@/assets/t2.1.png';
+import t2Texture from '@/assets/t2.2.png';
+import t2Aerial from '@/assets/t2.3.png';
+import t3Hero from '@/assets/t3.1.png';
+import t3Texture from '@/assets/t3.2.png';
+import t3Aerial from '@/assets/t3.3.png';
+import t4Hero from '@/assets/t4.1.png';
+import t4Texture from '@/assets/t4.2.png';
+import t4Aerial from '@/assets/t4.3.png';
+import t5Hero from '@/assets/t5.1.png';
+import t5Aerial from '@/assets/t5.3.png';
+import t6Hero from '@/assets/t6.1.png';
+import t6Texture from '@/assets/t6.2.png';
+import t6Aerial from '@/assets/t6.3.png';
+import t7Hero from '@/assets/t7.1.png';
+import t7Texture from '@/assets/t7.2.png';
+import t7Aerial from '@/assets/t7.3.png';
+import t8Hero from '@/assets/t8.1.png';
+import t8Texture from '@/assets/t8.2.png';
+import t8Aerial from '@/assets/t8.3.png';
+
 // Video imports
 import pimCultureVideo from '@/assets/videos/pim-culture.mp4';
 import pimCulturePoster from '@/assets/videos/pim-culture-poster.jpg';
@@ -56,6 +81,11 @@ export interface CategoryConfig {
   bgColor: string;
   video: string;
   poster: string;
+  images: {
+    hero?: string;
+    texture?: string;
+    aerial?: string;
+  };
   seo: {
     title: string;
     description: string;
@@ -77,6 +107,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thailand\'s cultural tapestry spans centuries of Buddhist tradition, royal heritage, and living artistry. Our culture companions are historians, artists, and locals who grew up immersed in these traditions. From the gilded spires of the Grand Palace to the quiet mountain temples of Chiang Mai, they reveal the stories that guidebooks miss.',
     color: 'hsl(270, 65%, 55%)',
     bgColor: 'hsl(270, 75%, 85%)',
+    images: { hero: t1Hero, texture: t1Texture, aerial: t1Aerial },
     video: pimCultureVideo,
     poster: pimCulturePoster,
     seo: {
@@ -114,6 +145,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thailand\'s dramatic geography — limestone karsts, jungle canopies, coral reefs, and volcanic hot springs — is an adventure playground. Our companions are certified divers, experienced trekkers, and lifelong outdoor enthusiasts who know the safest and most thrilling routes, from Phi Phi\'s underwater caves to Doi Inthanon\'s summit trails.',
     color: 'hsl(210, 70%, 50%)',
     bgColor: 'hsl(210, 80%, 85%)',
+    images: { hero: t2Hero, texture: t2Texture, aerial: t2Aerial },
     video: maleeIslandVideo,
     poster: maleeIslandPoster,
     seo: {
@@ -151,6 +183,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thailand is the global destination for wellness — from ancient Nuad Thai massage to silent vipassana retreats in forest monasteries. Our wellness companions are certified therapists, yoga instructors, and meditation practitioners who create bespoke healing journeys, whether you need a weekend reset or a month-long transformation.',
     color: 'hsl(155, 65%, 45%)',
     bgColor: 'hsl(155, 75%, 80%)',
+    images: { hero: t3Hero, texture: t3Texture, aerial: t3Aerial },
     video: sudaSpaVideo,
     poster: sudaSpaPoster,
     seo: {
@@ -188,6 +221,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Bangkok\'s skyline bars, Phuket\'s beach clubs, and Chiang Mai\'s jazz lounges make Thailand one of Asia\'s most electric nightlife destinations. Our nightlife companions know the door staff, the best tables, the secret speakeasies, and the late-night street food spots that fuel the next round.',
     color: 'hsl(340, 70%, 55%)',
     bgColor: 'hsl(340, 80%, 85%)',
+    images: { hero: t4Hero, texture: t4Texture, aerial: t4Aerial },
     video: tunRooftopVideo,
     poster: tunRooftopPoster,
     seo: {
@@ -225,6 +259,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Bangkok is a lifestyle capital — from the vintage shophouses of Charoen Krung to the concept malls of Sukhumvit, from co-working cafes in Ari to bespoke tailoring in Silom. Our lifestyle companions are creatives, fashionistas, and city insiders who know where to find the best of modern Thai living.',
     color: 'hsl(35, 75%, 50%)',
     bgColor: 'hsl(35, 85%, 80%)',
+    images: { hero: t5Hero, aerial: t5Aerial },
     video: daoBeachVideo,
     poster: daoBeachPoster,
     seo: {
@@ -262,6 +297,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thailand\'s film scene spans from Apichatpong Weerasethakul\'s Palme d\'Or-winning art-house cinema to the stunning locations of Hollywood blockbusters. Our cinema companions are directors, critics, and film buffs who take you behind the camera — from Bangkok\'s vintage screening rooms to the Chiang Mai locations of your favorite films.',
     color: 'hsl(250, 65%, 55%)',
     bgColor: 'hsl(250, 75%, 85%)',
+    images: { hero: t6Hero, texture: t6Texture, aerial: t6Aerial },
     video: somCookingVideo,
     poster: somCookingPoster,
     seo: {
@@ -299,6 +335,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thailand\'s calendar is packed with spectacle — from the sky lanterns of Yi Peng to the water fights of Songkran, from Muay Thai championships to full-moon beach parties. Our events companions are festival veterans, sports insiders, and cultural experts who get you the best experience, not just a ticket.',
     color: 'hsl(15, 75%, 55%)',
     bgColor: 'hsl(15, 85%, 80%)',
+    images: { hero: t7Hero, texture: t7Texture, aerial: t7Aerial },
     video: tonPartyVideo,
     poster: tonPartyPoster,
     seo: {
@@ -336,6 +373,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     overviewDescription: 'Thai cuisine is the world\'s most complex and beloved street food culture — and it goes far deeper than pad thai. Our food companions are chefs, market vendors, and obsessive food hunters who take you from smoky wok stations in Chinatown to Michelin-starred street stalls, from hands-on cooking classes to secret family recipes passed down for generations.',
     color: 'hsl(45, 85%, 55%)',
     bgColor: 'hsl(45, 90%, 80%)',
+    images: { hero: t8Hero, texture: t8Texture, aerial: t8Aerial },
     video: niranStreetfoodVideo,
     poster: niranStreetfoodPoster,
     seo: {

@@ -8,6 +8,8 @@ interface CategoryHeroProps {
 }
 
 const CategoryHero = ({ config }: CategoryHeroProps) => {
+  const heroImage = config.images?.hero;
+
   return (
     <section
       className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 pb-12"
@@ -19,6 +21,16 @@ const CategoryHero = ({ config }: CategoryHeroProps) => {
         title={config.seo.title}
         description={config.seo.description}
         canonical={config.seo.canonical}
+        openGraph={heroImage ? {
+          'og:image': heroImage,
+          'og:image:type': 'image/png',
+          'og:image:width': '1200',
+          'og:image:height': '630',
+        } : undefined}
+        twitter={heroImage ? {
+          'twitter:card': 'summary_large_image',
+          'twitter:image': heroImage,
+        } : undefined}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
@@ -28,6 +40,20 @@ const CategoryHero = ({ config }: CategoryHeroProps) => {
           ],
         }}
       />
+
+      {/* Hero background image */}
+      {heroImage && (
+        <img
+          src={heroImage}
+          alt={`${config.name} experiences in Thailand — atmospheric establishing shot`}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
+
+      {/* Dark gradient overlay for text readability */}
+      {heroImage && (
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+      )}
 
       {/* Subtle gradient overlay using category color */}
       <div
