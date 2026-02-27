@@ -1,4 +1,3 @@
-import Header from '@/components/Header';
 import StreamlinedHero from '@/components/StreamlinedHero';
 import CategoriesGrid from '@/components/CategoriesGrid';
 import FeaturedCompanions from '@/components/FeaturedCompanions';
@@ -11,7 +10,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen" role="main">
+    <div className="min-h-screen">
       <SEO 
         title="Tirak - Authentic Travel Experiences with Local Companions"
         description="Discover unique travel experiences with verified local companions. Connect with passionate guides who share their culture, stories, and hidden gems."
@@ -31,11 +30,10 @@ const Index = () => {
           'twitter:image': 'https://tirak.app/og.jpg'
         }}
       />
-      {/* Sticky Header */}
-      <Header />
-      
       {/* Hero Section */}
-      <StreamlinedHero />
+      <section id="home">
+        <StreamlinedHero />
+      </section>
       
       {/* Categories Grid */}
       <section id="explore" aria-label="Explore categories">
