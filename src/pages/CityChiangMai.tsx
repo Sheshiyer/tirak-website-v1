@@ -9,6 +9,20 @@ const CityChiangMai = () => {
         title="Chiang Mai Local Companions — Culture & Nature | Tirak"
         description="Explore Chiang Mai with verified local companions. Temples, old city, markets, and nature experiences tailored to your vibe."
         canonical="https://tirak.app/chiang-mai"
+        openGraph={{
+          'og:title': 'Chiang Mai Local Companions — Culture & Nature | Tirak',
+          'og:description': 'Explore Chiang Mai with verified local companions. Temples, markets, and mountain retreats.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/chiang-mai',
+          'og:image': 'https://tirak.app/og.jpg',
+          'og:image:alt': 'Explore Chiang Mai with local companions on Tirak'
+        }}
+        twitter={{
+          'twitter:card': 'summary_large_image',
+          'twitter:title': 'Chiang Mai Local Companions | Tirak',
+          'twitter:description': 'Temples, old city, markets, and nature — explore Chiang Mai with verified locals.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',

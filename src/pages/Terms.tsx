@@ -4,10 +4,23 @@ import Footer from '@/components/Footer';
 const Terms = () => {
   return (
     <>
-      <SEO 
-        title="Terms & Conditions - Tirak Travel Companion Service"
+      <SEO
+        title="Terms of Service — Tirak Travel Companion Platform"
         description="Read Tirak's terms and conditions for using our travel companion marketplace. User agreements, service guidelines, and legal terms for travelers and guides."
         canonical="https://tirak.app/terms"
+        openGraph={{
+          'og:title': 'Terms of Service — Tirak',
+          'og:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/terms',
+          'og:image': 'https://tirak.app/og.jpg'
+        }}
+        twitter={{
+          'twitter:card': 'summary',
+          'twitter:title': 'Terms of Service — Tirak',
+          'twitter:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-surface/20 py-16 px-4">

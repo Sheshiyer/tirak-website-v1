@@ -4,10 +4,23 @@ import Footer from '@/components/Footer';
 const Privacy = () => {
   return (
     <>
-      <SEO 
-        title="Privacy Policy - Tirak Travel Companion Platform"
+      <SEO
+        title="Privacy Policy — Tirak Travel Companion Platform"
         description="Learn how Tirak protects your privacy and handles your personal data. Comprehensive privacy policy for our travel companion marketplace platform."
         canonical="https://tirak.app/privacy"
+        openGraph={{
+          'og:title': 'Privacy Policy — Tirak',
+          'og:description': 'How Tirak protects your privacy and handles personal data on our travel companion platform.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/privacy',
+          'og:image': 'https://tirak.app/og.jpg'
+        }}
+        twitter={{
+          'twitter:card': 'summary',
+          'twitter:title': 'Privacy Policy — Tirak',
+          'twitter:description': 'How Tirak protects your privacy and handles personal data.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
       />
       
       <div className="min-h-screen pt-24 pb-16 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">

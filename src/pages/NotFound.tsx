@@ -15,8 +15,10 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <SEO
-        title="Page Not Found - Tirak"
+        title="Page Not Found — Tirak"
         description="The page you're looking for doesn't exist. Return to Tirak to discover authentic travel experiences with local companions."
+        canonical="https://tirak.app/404"
+        noindex={true}
       />
       <div className="text-center">
         <h1 className="text-responsive-lg font-bold font-inter text-contrast mb-4">404</h1>

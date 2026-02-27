@@ -5,7 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://tirak-backend.tirak-court.workers.dev';
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.tirak.app';
 
 const categories = [
   'Culture', 'Adventure', 'Wellness', 'Nightlife',
@@ -106,12 +106,17 @@ const SupplierOnboarding = () => {
       <div className="min-h-screen pt-24 pb-16">
         <SEO
           title="Application Submitted — Supplier Onboarding | Tirak"
-          description="Your vendor application has been submitted to the Tirak team."
+          description="Your vendor application has been submitted to the Tirak team. We will review and respond within 2-3 business days."
           canonical="https://tirak.app/supplier-onboarding"
+          noindex={true}
         />
         <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center py-20">
           <div className="glass-card rounded-2xl p-10 sm:p-14 border border-white/20">
-            <div className="text-5xl mb-6">✅</div>
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-500/10 flex items-center justify-center">
+              <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
             <h1 className="text-3xl sm:text-4xl font-bold font-inter text-contrast mb-4">Application Submitted</h1>
             <p className="text-lg text-contrast-secondary mb-8">
               Thank you for applying to join Tirak! Our team will review your application and reach out within 2-3 business days.
@@ -135,6 +140,20 @@ const SupplierOnboarding = () => {
         title="Become a Supplier — Join Tirak's Local Experience Network"
         description="Register as a vendor partner on Thailand's premier platform for curated travel and lifestyle experiences. Reach thousands of high-intent travelers."
         canonical="https://tirak.app/supplier-onboarding"
+        openGraph={{
+          'og:title': 'Become a Supplier — Join Tirak\'s Local Experience Network',
+          'og:description': 'Register as a vendor partner on Thailand\'s premier platform for curated travel and lifestyle experiences.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/supplier-onboarding',
+          'og:image': 'https://tirak.app/og.jpg',
+          'og:image:alt': 'Join Tirak as a supplier partner'
+        }}
+        twitter={{
+          'twitter:card': 'summary_large_image',
+          'twitter:title': 'Become a Supplier | Tirak',
+          'twitter:description': 'Join Thailand\'s premier platform for curated travel experiences.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',

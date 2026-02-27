@@ -1,29 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
+import { Users, Compass, MapPin, Sparkles, type LucideIcon } from 'lucide-react';
 
-const steps = [
+const steps: { number: string; title: string; description: string; icon: LucideIcon }[] = [
   {
     number: '01',
     title: 'Pick a Companion',
     description: 'Browse verified local guides and find the perfect match for your adventure.',
-    icon: '👥',
+    icon: Users,
   },
   {
     number: '02',
     title: 'Choose a Category',
     description: 'Select from culture, adventure, wellness, nightlife, and more experiences.',
-    icon: '🎯',
+    icon: Compass,
   },
   {
     number: '03',
     title: 'Set Time & Meeting Point',
     description: 'Coordinate your schedule and choose a convenient meeting location.',
-    icon: '📍',
+    icon: MapPin,
   },
   {
     number: '04',
     title: 'Enjoy Your Experience!',
     description: 'Discover authentic Thailand with your personal local guide.',
-    icon: '✨',
+    icon: Sparkles,
   },
 ];
 
@@ -76,7 +77,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">{step.icon}</span>
+                <step.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
               <p className="text-muted-foreground">{step.description}</p>

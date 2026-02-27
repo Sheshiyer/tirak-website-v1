@@ -9,6 +9,20 @@ const CityPhuket = () => {
         title="Phuket Local Companions — Beaches & Adventure | Tirak"
         description="Explore Phuket with verified local companions. Beaches, island trips, nightlife, and adventure tailored to your vibe."
         canonical="https://tirak.app/phuket"
+        openGraph={{
+          'og:title': 'Phuket Local Companions — Beaches & Adventure | Tirak',
+          'og:description': 'Explore Phuket with verified local companions. Beaches, island trips, and vibrant nightlife.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/phuket',
+          'og:image': 'https://tirak.app/og.jpg',
+          'og:image:alt': 'Explore Phuket with local companions on Tirak'
+        }}
+        twitter={{
+          'twitter:card': 'summary_large_image',
+          'twitter:title': 'Phuket Local Companions | Tirak',
+          'twitter:description': 'Beaches, island trips, nightlife — explore Phuket with verified locals.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',

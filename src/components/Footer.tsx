@@ -101,15 +101,23 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/chiang-mai" 
+                <Link
+                  to="/chiang-mai"
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
                   Chiang Mai Guides
                 </Link>
               </li>
               <li>
-                <Link 
+                <Link
+                  to="/phuket"
+                  className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
+                >
+                  Phuket Guides
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/download" 
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
@@ -151,7 +159,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="mailto:support@tirak.com" 
+                  href="mailto:support@tirak.app"
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
                   Support

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
 import AdaptiveLogo from '@/components/AdaptiveLogo';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Smartphone, Compass, MessageCircle, Building2, Landmark as LandmarkIcon } from 'lucide-react';
 
 const StreamlinedHero = () => {
   const { toast } = useToast();
@@ -187,40 +188,40 @@ const StreamlinedHero = () => {
               </form>
 
               {/* Secondary Actions - Enhanced Mobile Layout */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-contrast-secondary">
-                <Link 
-                  to="/download" 
-                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-contrast-secondary">
+                <Link
+                  to="/download"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
-                  <span>📱</span>
+                  <Smartphone className="w-3.5 h-3.5" />
                   <span>Download App</span>
                 </Link>
-                <Link 
-                  to="#explore" 
-                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                <a
+                  href="#explore"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
-                  <span>🗺️</span>
+                  <Compass className="w-3.5 h-3.5" />
                   <span>Explore Experiences</span>
-                </Link>
-                <Link 
-                  to="#companion-stories" 
-                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                </a>
+                <a
+                  href="#companion-stories"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
-                  <span>💬</span>
+                  <MessageCircle className="w-3.5 h-3.5" />
                   <span>Read Stories</span>
-                </Link>
-                <Link 
-                  to="/bangkok" 
-                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                </a>
+                <Link
+                  to="/bangkok"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
-                  <span>🏙️</span>
+                  <Building2 className="w-3.5 h-3.5" />
                   <span>Bangkok Guides</span>
                 </Link>
-                <Link 
-                  to="/chiang-mai" 
-                  className="flex items-center space-x-2 hover:text-primary transition-colors duration-200"
+                <Link
+                  to="/chiang-mai"
+                  className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
-                  <span>🏯</span>
+                  <LandmarkIcon className="w-3.5 h-3.5" />
                   <span>Chiang Mai Guides</span>
                 </Link>
               </div>
@@ -275,16 +276,20 @@ const StreamlinedHero = () => {
                     {/* Feature Cards - Mobile Optimized */}
                     <div className="space-y-3 sm:space-y-4">
                       {[
-                        { icon: '🏛️', title: 'Cultural Tours', desc: 'Temple visits & traditions' },
-                        { icon: '🏔️', title: 'Adventure Trips', desc: 'Hiking & water sports' },
-                        { icon: '🧘', title: 'Wellness Retreats', desc: 'Spa & meditation' },
+                        { title: 'Cultural Tours', desc: 'Temple visits & traditions' },
+                        { title: 'Adventure Trips', desc: 'Hiking & water sports' },
+                        { title: 'Wellness Retreats', desc: 'Spa & meditation' },
                       ].map((item, index) => (
-                        <div 
+                        <div
                           key={index}
                           className="bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center space-x-3 sm:space-x-4 animate-drift-up"
                           style={{ animationDelay: `${index * 0.2}s` }}
                         >
-                          <div className="text-xl sm:text-2xl">{item.icon}</div>
+                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/20 flex items-center justify-center text-white">
+                            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={index === 0 ? 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' : index === 1 ? 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z' : 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'} />
+                            </svg>
+                          </div>
                           <div className="flex-1 min-w-0">
                             <h4 className="text-white font-semibold text-sm sm:text-base truncate">{item.title}</h4>
                             <p className="text-white/70 text-xs sm:text-sm truncate">{item.desc}</p>

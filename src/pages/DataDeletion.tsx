@@ -152,10 +152,11 @@ export function DataDeletion() {
   if (isSubmitted) {
     return (
       <>
-        <SEO 
-          title="Data Deletion Request Submitted - Tirak"
+        <SEO
+          title="Data Deletion Request Submitted — Tirak"
           description="Your data deletion request has been successfully submitted. We will process your request within 30 days."
           canonical="https://tirak.app/data-deletion"
+          noindex={true}
         />
         
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -210,10 +211,23 @@ export function DataDeletion() {
 
   return (
     <>
-      <SEO 
-        title="Data Deletion Request - Tirak Privacy Center"
+      <SEO
+        title="Data Deletion Request — Tirak Privacy Center"
         description="Request deletion of your personal data from Tirak. Submit a secure form to permanently remove your information from our systems."
         canonical="https://tirak.app/data-deletion"
+        openGraph={{
+          'og:title': 'Data Deletion Request — Tirak Privacy Center',
+          'og:description': 'Request permanent deletion of your personal data from Tirak.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/data-deletion',
+          'og:image': 'https://tirak.app/og.jpg'
+        }}
+        twitter={{
+          'twitter:card': 'summary',
+          'twitter:title': 'Data Deletion — Tirak',
+          'twitter:description': 'Request permanent deletion of your personal data from Tirak.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
       />
       
       <div className="min-h-screen pt-24 pb-16">

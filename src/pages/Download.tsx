@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 // Store listings and iOS PWA URL
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.tirak.pineapple";
-const IOS_PWA_URL = "https://tirak.netlify.app";
+const IOS_PWA_URL = "https://tirak.app";
 const PWA_GUIDE_ANCHOR = "#ios-pwa-guide";
 const IOS_TIMELINE = import.meta.env.VITE_IOS_NATIVE_TIMELINE ?? "Pending App Store approval";
 const HYPE_METRIC = import.meta.env.VITE_HYPE_METRIC ?? "1K+";
@@ -78,10 +78,24 @@ const Download = () => {
 
   return (
     <>
-      <SEO 
-        title="Download Tirak - Dream Journal & Lucid Dreaming App"
-        description="Download Tirak for iOS and Android. Start your lucid dreaming journey with our comprehensive dream journal and reality check features."
+      <SEO
+        title="Download Tirak — Local Travel Companions in Thailand"
+        description="Download Tirak for iOS and Android. Connect with verified local companions for authentic travel experiences across Thailand."
         canonical="https://tirak.app/download"
+        openGraph={{
+          'og:title': 'Download Tirak — Local Travel Companions in Thailand',
+          'og:description': 'Connect with verified local companions for authentic travel experiences across Thailand. Available on Android and iOS PWA.',
+          'og:type': 'website',
+          'og:url': 'https://tirak.app/download',
+          'og:image': 'https://tirak.app/og.jpg',
+          'og:image:alt': 'Download Tirak travel companion app'
+        }}
+        twitter={{
+          'twitter:card': 'summary_large_image',
+          'twitter:title': 'Download Tirak — Local Travel Companions in Thailand',
+          'twitter:description': 'Connect with verified local companions for authentic Thai experiences.',
+          'twitter:image': 'https://tirak.app/og.jpg'
+        }}
       />
       
       <div className="min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900" style={{ marginTop: 'clamp(5em, 10vh, 9em)' }}>
