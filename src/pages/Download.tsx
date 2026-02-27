@@ -170,17 +170,29 @@ const Download = () => {
               <section id="ios-pwa-guide" className="mt-10">
                 <h3 className="text-xl md:text-2xl font-semibold">Install Tirak PWA on iOS</h3>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <figure className="glass-card p-4 rounded-xl">
-                    <img src="/src/assets/guide-1.jpg" alt="Open Tirak in Safari" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
-                    <figcaption className="mt-2 text-sm text-text-secondary">1. Open Tirak in Safari</figcaption>
+                  <figure className="glass-card p-6 rounded-xl text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                      </svg>
+                    </div>
+                    <figcaption className="text-sm text-text-secondary">1. Open Tirak in Safari</figcaption>
                   </figure>
-                  <figure className="glass-card p-4 rounded-xl">
-                    <img src="/src/assets/guide-2.jpg" alt="Tap the Share icon" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
-                    <figcaption className="mt-2 text-sm text-text-secondary">2. Tap the Share icon</figcaption>
+                  <figure className="glass-card p-6 rounded-xl text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                      </svg>
+                    </div>
+                    <figcaption className="text-sm text-text-secondary">2. Tap the Share icon</figcaption>
                   </figure>
-                  <figure className="glass-card p-4 rounded-xl">
-                    <img src="/src/assets/guide-3.jpg" alt="Select Add to Home Screen" className="rounded-lg w-full h-auto" loading="lazy" decoding="async" width="800" height="600" />
-                    <figcaption className="mt-2 text-sm text-text-secondary">3. Select "Add to Home Screen"</figcaption>
+                  <figure className="glass-card p-6 rounded-xl text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <figcaption className="text-sm text-text-secondary">3. Select "Add to Home Screen"</figcaption>
                   </figure>
                 </div>
 

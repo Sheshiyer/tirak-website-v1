@@ -28,6 +28,8 @@ const CityPhuket = () => {
               <li><Link to="/adventure" className="hover:text-primary">Adventure</Link></li>
               <li><Link to="/nightlife" className="hover:text-primary">Nightlife</Link></li>
               <li><Link to="/wellness" className="hover:text-primary">Wellness</Link></li>
+              <li><Link to="/events" className="hover:text-primary">Events</Link></li>
+              <li><Link to="/food" className="hover:text-primary">Food & Drink</Link></li>
             </ul>
           </div>
           <div className="glass-card rounded-xl p-6">

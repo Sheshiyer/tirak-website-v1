@@ -22,6 +22,10 @@ import CategoryAdventure from './pages/CategoryAdventure';
 import CategoryWellness from './pages/CategoryWellness';
 import CategoryNightlife from './pages/CategoryNightlife';
 import CategoryFood from './pages/CategoryFood';
+import CategoryLifestyle from './pages/CategoryLifestyle';
+import CategoryCinema from './pages/CategoryCinema';
+import CategoryEvents from './pages/CategoryEvents';
+import SupplierOnboarding from './pages/SupplierOnboarding';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -69,6 +73,10 @@ function App() {
                   <Route path="/wellness" element={<CategoryWellness />} />
                   <Route path="/nightlife" element={<CategoryNightlife />} />
                   <Route path="/food" element={<CategoryFood />} />
+                  <Route path="/lifestyle" element={<CategoryLifestyle />} />
+                  <Route path="/cinema" element={<CategoryCinema />} />
+                  <Route path="/events" element={<CategoryEvents />} />
+                  <Route path="/supplier-onboarding" element={<SupplierOnboarding />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

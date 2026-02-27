@@ -27,7 +27,9 @@ const CityChiangMai = () => {
             <ul className="mt-3 space-y-2 text-contrast-secondary">
               <li><Link to="/culture" className="hover:text-primary">Culture</Link></li>
               <li><Link to="/adventure" className="hover:text-primary">Adventure</Link></li>
-              <li><Link to="/food" className="hover:text-primary">Food</Link></li>
+              <li><Link to="/wellness" className="hover:text-primary">Wellness</Link></li>
+              <li><Link to="/lifestyle" className="hover:text-primary">Lifestyle</Link></li>
+              <li><Link to="/cinema" className="hover:text-primary">Cinema</Link></li>
             </ul>
           </div>
           <div className="glass-card rounded-xl p-6">

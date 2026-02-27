@@ -26,8 +26,11 @@ const CityBangkok = () => {
             <h2 className="text-xl font-semibold">Popular Vibes</h2>
             <ul className="mt-3 space-y-2 text-contrast-secondary">
               <li><Link to="/culture" className="hover:text-primary">Culture</Link></li>
-              <li><Link to="/food" className="hover:text-primary">Food</Link></li>
               <li><Link to="/nightlife" className="hover:text-primary">Nightlife</Link></li>
+              <li><Link to="/food" className="hover:text-primary">Food & Drink</Link></li>
+              <li><Link to="/lifestyle" className="hover:text-primary">Lifestyle</Link></li>
+              <li><Link to="/cinema" className="hover:text-primary">Cinema</Link></li>
+              <li><Link to="/events" className="hover:text-primary">Events</Link></li>
             </ul>
           </div>
           <div className="glass-card rounded-xl p-6">

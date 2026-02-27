@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
 interface BlobProps extends HTMLAttributes<SVGElement> {
-  variant?: 'culture' | 'adventure' | 'wellness' | 'nightlife' | 'lifestyle' | 'private' | 'cinema' | 'events' | 'fooddrink';
+  variant?: 'culture' | 'adventure' | 'wellness' | 'nightlife' | 'lifestyle' | 'cinema' | 'events' | 'fooddrink';
   size?: number;
 }
 
@@ -80,21 +80,6 @@ export const LifestyleBlob = ({ size = 200, className, ...props }: BlobProps) =>
   </svg>
 );
 
-export const PrivateBlob = ({ size = 200, className, ...props }: BlobProps) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 200 200" 
-    className={className}
-    {...props}
-  >
-    <path
-      d="M100,14 C152,20 172,55 185,92 C188,132 168,162 142,178 C112,192 82,185 55,168 C28,148 15,118 22,88 C32,52 65,8 100,14 Z"
-      fill="currentColor"
-    />
-  </svg>
-);
-
 export const CinemaBlob = ({ size = 200, className, ...props }: BlobProps) => (
   <svg 
     width={size} 
@@ -146,7 +131,6 @@ const BlobComponents = {
   wellness: WellnessBlob,
   nightlife: NightlifeBlob,
   lifestyle: LifestyleBlob,
-  private: PrivateBlob,
   cinema: CinemaBlob,
   events: EventsBlob,
   fooddrink: FoodDrinkBlob,

@@ -1,5 +1,6 @@
 import { BlobShape } from '@/components/ui/blob-shapes';
 import { CategoryIcons } from '@/lib/category-icons';
+import { Link } from 'react-router-dom';
 
 const categories = [
   { 
@@ -36,13 +37,6 @@ const categories = [
     color: 'hsl(35, 75%, 50%)', 
     bgColor: 'hsl(35, 85%, 80%)',
     variant: 'lifestyle' as const 
-  },
-  { 
-    id: 'private', 
-    name: 'Private', 
-    color: 'hsl(210, 15%, 45%)', 
-    bgColor: 'hsl(210, 25%, 75%)',
-    variant: 'private' as const 
   },
   { 
     id: 'cinema', 
@@ -84,12 +78,14 @@ const CategoriesGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {categories.map((category, index) => {
             const IconComponent = CategoryIcons[category.id as keyof typeof CategoryIcons] || CategoryIcons.culture;
-            
+            const linkPath = category.id === 'fooddrink' ? '/food' : `/${category.id}`;
+
             return (
-              <div
+              <Link
+                to={linkPath}
                 key={category.name}
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 cursor-pointer"
               >
@@ -101,7 +97,7 @@ const CategoriesGrid = () => {
                     {category.name}
                   </h3>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

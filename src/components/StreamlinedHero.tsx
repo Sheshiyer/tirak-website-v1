@@ -14,7 +14,7 @@ const StreamlinedHero = () => {
   const [currentVibeIndex, setCurrentVibeIndex] = useState(0);
   const phoneRef = useRef<HTMLDivElement>(null);
 
-  const vibes = ['CULTURE', 'ADVENTURE', 'WELLNESS', 'NIGHTLIFE', 'FOOD', 'NATURE'];
+  const vibes = ['CULTURE', 'ADVENTURE', 'WELLNESS', 'NIGHTLIFE', 'LIFESTYLE', 'CINEMA', 'EVENTS', 'FOOD & DRINK'];
 
   // Rotate vibes text
   useEffect(() => {
