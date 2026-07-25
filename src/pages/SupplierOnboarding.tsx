@@ -5,7 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://api.tirak.app';
+const API_URL = import.meta.env.VITE_API_URL || 'https://tirak-backend.tirak-court.workers.dev';
 
 const categories = [
   'Culture', 'Adventure', 'Wellness', 'Nightlife',
@@ -80,10 +80,27 @@ const SupplierOnboarding = () => {
 
     setLoading(true);
     try {
+      const payload = {
+        businessName: form.brandName,
+        contactName: form.contactName,
+        email: form.email,
+        phone: form.phone,
+        location: form.address,
+        bio: form.description,
+        brochureUrls: [form.website, form.social].filter(Boolean),
+        categories: [
+          {
+            name: form.primaryCategory,
+            memberCount: 1,
+          },
+        ],
+        mode: 'tirak' as const,
+      };
+
       const res = await fetch(`${API_URL}/api/public/vendor-application`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
