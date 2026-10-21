@@ -35,7 +35,7 @@ export default function Download() {
           </div>
           <section className="mt-8 border-t border-white/10 pt-6" aria-labelledby="testflight-heading">
             <h2 id="testflight-heading" className="text-xl font-semibold">Already invited to the iPhone beta?</h2>
-            <p className="text-text-secondary mt-3">Invited testers can check the Tirak TestFlight invitation while the public iPhone App Store release is under review. Apple shows whether access and a compatible build are available.</p>
+            <p className="text-text-secondary mt-3">Invited testers can check the Tirak TestFlight invitation until the public iPhone app is available. Apple shows whether access and a compatible build are available.</p>
             <Button asChild variant="outline" className="focus-ring mt-4"><a href={TESTFLIGHT_URL} target="_blank" rel="noopener noreferrer">Open the TestFlight invitation <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" /></a></Button>
           </section>
           <section className="mt-8 border-t border-white/10 pt-6" aria-labelledby="download-help-heading">
