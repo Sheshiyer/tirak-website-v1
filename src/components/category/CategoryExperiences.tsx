@@ -10,10 +10,10 @@ const CategoryExperiences = ({ config }: CategoryExperiencesProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-inter text-white mb-4">
-            What You'll Experience
+            Ideas for Your Trip
           </h2>
           <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto">
-            Curated {config.name.toLowerCase()} experiences led by verified local companions
+            Illustrative {config.name.toLowerCase()} ideas to discuss with a local guide. Availability and arrangements must be confirmed in the app.
           </p>
         </div>
 

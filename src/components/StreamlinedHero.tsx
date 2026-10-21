@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import InterestSignup from '@/components/InterestSignup';
 import { Link } from 'react-router-dom';
-import { useToast } from '@/hooks/use-toast';
 import AdaptiveLogo from '@/components/AdaptiveLogo';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Smartphone, Compass, MessageCircle, Building2, Landmark as LandmarkIcon } from 'lucide-react';
 
 const StreamlinedHero = () => {
-  const { toast } = useToast();
   const isMobile = useIsMobile();
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [currentVibeIndex, setCurrentVibeIndex] = useState(0);
   const phoneRef = useRef<HTMLDivElement>(null);
 
@@ -63,39 +58,6 @@ const StreamlinedHero = () => {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  const handleQuickSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) {
-      toast({ title: 'Email required', description: 'Please enter a valid email.', variant: 'destructive' });
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const fd = new FormData();
-      fd.set('email', email);
-      fd.set('source', 'hero_quick_signup');
-      fd.set('referrer', typeof document !== 'undefined' ? document.referrer : '');
-      fd.set('_subject', 'Hero Quick Signup');
-      const res = await fetch('https://formspree.io/f/xeorzjly', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd,
-      });
-      const result = await res.json();
-      if (!res.ok) {
-        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : 'Signup failed';
-        throw new Error(msg);
-      }
-
-      toast({ title: "You're on the list!", description: 'We will notify you at launch.' });
-      setEmail('');
-    } catch (err) {
-      toast({ title: 'Signup failed', description: 'Please try again.', variant: 'destructive' });
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24" role="banner">
@@ -169,23 +131,11 @@ const StreamlinedHero = () => {
             {/* Enhanced Mobile CTA Section */}
             <div className="space-y-4 sm:space-y-6">
               {/* Quick Signup Form - Mobile Optimized */}
-              <form action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleQuickSignup} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 sm:h-14 text-base flex-1 glass-light"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  className="btn-primary h-12 sm:h-14 px-6 sm:px-8 text-base font-semibold whitespace-nowrap"
-                  disabled={loading}
-                >
-                  {loading ? 'Joining...' : 'Join Waitlist'}
-                </Button>
-              </form>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+                <Link to="/download" className="btn-primary inline-flex items-center justify-center px-6 py-3 focus-ring">Get Tirak</Link>
+                <Link to="/apply" className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 focus-ring">Apply as a Guide</Link>
+              </div>
+              <InterestSignup source="hero_quick_signup" />
 
               {/* Secondary Actions - Enhanced Mobile Layout */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-contrast-secondary">
@@ -208,7 +158,7 @@ const StreamlinedHero = () => {
                   className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Read Stories</span>
+                  <span>Travel Ideas</span>
                 </a>
                 <Link
                   to="/bangkok"
@@ -229,16 +179,16 @@ const StreamlinedHero = () => {
               {/* Trust Indicators - Mobile Optimized */}
               <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-4 sm:pt-6 border-t border-white/10 max-w-md mx-auto lg:mx-0">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">500+</div>
-                  <div className="text-xs sm:text-sm text-contrast-secondary">Local Guides</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">Explore</div>
+                  <div className="text-xs sm:text-sm text-contrast-secondary">Local experiences</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">50+</div>
-                  <div className="text-xs sm:text-sm text-contrast-secondary">Thai Cities</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">Thailand</div>
+                  <div className="text-xs sm:text-sm text-contrast-secondary">Travel inspiration</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-xs sm:text-sm text-contrast-secondary">Support</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">Contact</div>
+                  <div className="text-xs sm:text-sm text-contrast-secondary">The Tirak team</div>
                 </div>
               </div>
             </div>

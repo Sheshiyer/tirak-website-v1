@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { companions, companionCategories } from '@/lib/companions-data';
@@ -48,11 +49,11 @@ const FeaturedCompanions = () => {
         {/* Header */}
         <div className="text-center mb-10 sm:mb-14 space-y-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-inter text-contrast leading-tight">
-            Meet Our Local
-            <span className="block sm:inline gradient-text sm:ml-4">Companions</span>
+            Explore Local
+            <span className="block sm:inline gradient-text sm:ml-4">{' '}Experience Ideas</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-contrast-secondary font-inter leading-relaxed max-w-2xl mx-auto">
-            Top-rated guides across every experience — find your perfect match.
+            Illustrative ideas for your Thailand trip. These are not bookable guide profiles; check the app for current availability.
           </p>
         </div>
 
@@ -100,12 +101,12 @@ const FeaturedCompanions = () => {
                   className="flex-shrink-0 px-2 sm:px-3"
                   style={{ width: `${100 / cardsPerView}%` }}
                 >
-                  <div className="group relative cursor-pointer rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(168,85,247,0.15)]">
+                  <div className="group relative rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(168,85,247,0.15)]">
                     {/* Image */}
                     <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-gradient-to-br from-primary/5 to-primary/10 ring-1 ring-white/10 group-hover:ring-primary/30 transition-all duration-300">
                       <img
                         src={companion.image}
-                        alt={`${companion.name} — ${companion.tagline}`}
+                        alt={`Illustrative ${companion.tagline.toLowerCase()} experience`}
                         className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                         loading="lazy"
                         decoding="async"
@@ -117,14 +118,7 @@ const FeaturedCompanions = () => {
                     {/* Info */}
                     <div className="space-y-2 px-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-lg">{companion.name}</h3>
-                        <div className="flex items-center gap-1 text-sm">
-                          <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                          <span className="font-medium">{companion.rating}</span>
-                          <span className="text-muted-foreground">({companion.reviews})</span>
-                        </div>
+                        <h3 className="font-semibold text-lg">{companion.tagline}</h3>
                       </div>
                       <p className="text-muted-foreground flex items-center gap-1 text-sm">
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,11 +131,7 @@ const FeaturedCompanions = () => {
                         <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
                           {companion.category}
                         </span>
-                        {companion.verified && (
-                          <span className="px-2 py-1 bg-green-500/10 text-green-400 text-xs rounded-full">
-                            Verified
-                          </span>
-                        )}
+                        <span className="px-2 py-1 bg-white/10 text-xs rounded-full">Illustrative idea</span>
                       </div>
                     </div>
                   </div>
@@ -184,8 +174,8 @@ const FeaturedCompanions = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button className="bg-button hover:shadow-glow text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105">
-            View All Companions
+          <Button asChild className="bg-button hover:shadow-glow text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105">
+            <Link to="/download">Check Guide Availability in the App</Link>
           </Button>
         </div>
       </div>

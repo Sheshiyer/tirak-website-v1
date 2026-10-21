@@ -24,8 +24,8 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-contrast-secondary text-sm leading-relaxed max-w-md">
-              Connect with verified local companions in Thailand. Discover authentic experiences, 
-              explore hidden gems, and create unforgettable memories with trusted local guides.
+              Explore local connections and travel ideas in Thailand. Discover experiences,
+              explore hidden gems, and check the Tirak app for guide and service availability.
             </p>
             <div className="flex space-x-4 mt-6">
               {/* Social Media Links */}
@@ -159,7 +159,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="mailto:support@tirak.app"
+                  href="mailto:contact@tirak.app"
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
                   Support

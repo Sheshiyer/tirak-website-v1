@@ -33,7 +33,7 @@ const CityPhuket = () => {
         }}
       />
       <div className="container mx-auto px-6 max-w-5xl">
-        <h1 className="text-responsive-lg font-bold font-inter text-contrast mb-4">Phuket Local Companions</h1>
+        <h1 className="text-responsive-lg font-bold font-inter text-contrast mb-4">Phuket Travel Ideas</h1>
         <p className="text-lg text-contrast-secondary mb-8">Discover Phuket with locals who guide you through beaches, islands, and vibrant nightlife. Match by vibe.</p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="glass-card rounded-xl p-6">
@@ -55,8 +55,9 @@ const CityPhuket = () => {
             </ul>
           </div>
         </div>
+        <p className="mt-6 text-sm text-contrast-secondary">These are planning ideas. Check current guide profiles, services and availability in the app before making arrangements.</p>
         <div className="mt-10">
-          <Link to="/tirak" className="inline-block px-6 py-3 rounded-xl bg-button text-primary-foreground font-semibold">Find a Companion</Link>
+          <Link to="/download" className="inline-block px-6 py-3 rounded-xl bg-button text-primary-foreground font-semibold">Check App and Guide Availability</Link>
         </div>
       </div>
       <Footer />

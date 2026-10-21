@@ -59,17 +59,6 @@ export interface ExperienceItem {
   description: string;
 }
 
-export interface CategoryTestimonial {
-  quote: string;
-  author: string;
-  country: string;
-}
-
-export interface CategoryStat {
-  label: string;
-  value: string;
-}
-
 export interface CategoryConfig {
   id: string;
   slug: string;
@@ -91,10 +80,9 @@ export interface CategoryConfig {
     description: string;
     canonical: string;
   };
-  stats: CategoryStat[];
   experiences: ExperienceItem[];
   companionIds: number[];
-  testimonial: CategoryTestimonial;
+  planningTip: string;
 }
 
 export const categoryConfigs: Record<string, CategoryConfig> = {
@@ -104,7 +92,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Culture',
     title: 'Culture Experiences',
     heroDescription: 'Explore temples, traditions, and local life with companions who share their heritage and deep knowledge of Thai culture.',
-    overviewDescription: 'Thailand\'s cultural tapestry spans centuries of Buddhist tradition, royal heritage, and living artistry. Our culture companions are historians, artists, and locals who grew up immersed in these traditions. From the gilded spires of the Grand Palace to the quiet mountain temples of Chiang Mai, they reveal the stories that guidebooks miss.',
+    overviewDescription: 'Explore ideas inspired by Thai temples, local traditions, heritage walks and arts. These suggestions help you plan; they do not establish a guide’s qualifications or current availability.',
     color: 'hsl(270, 65%, 55%)',
     bgColor: 'hsl(270, 75%, 85%)',
     images: { hero: t1Hero, texture: t1Texture, aerial: t1Aerial },
@@ -115,11 +103,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Join verified local companions for cultural immersion: temples, traditions, markets, and heritage across Thailand.',
       canonical: 'https://tirak.app/culture',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '4' },
-      { label: 'Avg Rating', value: '4.95' },
-    ],
     experiences: [
       { icon: Landmark, title: 'Temple Pilgrimages', description: 'Visit sacred wat complexes with guides who explain Buddhist iconography and meditation practices.' },
       { icon: BookOpen, title: 'Heritage Walking Tours', description: 'Stroll through historic quarters and night markets learning centuries of local history.' },
@@ -129,11 +112,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Compass, title: 'Ancient Capital Visits', description: 'Explore Ayutthaya and Sukhothai ruins with companions who bring history alive.' },
     ],
     companionIds: [1, 2],
-    testimonial: {
-      quote: 'Pim turned what could have been a tourist trap into one of the most meaningful days of my life. She knew every story behind every detail at the Grand Palace.',
-      author: 'Sarah M.',
-      country: 'United Kingdom',
-    },
+    planningTip: 'Confirm site opening hours, dress requirements and any admission fees before arranging a cultural visit.',
   },
 
   adventure: {
@@ -142,7 +121,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Adventure',
     title: 'Adventure Experiences',
     heroDescription: 'Hiking, water sports, and outdoor thrills led by local companions who know the terrain and hidden trails.',
-    overviewDescription: 'Thailand\'s dramatic geography — limestone karsts, jungle canopies, coral reefs, and volcanic hot springs — is an adventure playground. Our companions are certified divers, experienced trekkers, and lifelong outdoor enthusiasts who know the safest and most thrilling routes, from Phi Phi\'s underwater caves to Doi Inthanon\'s summit trails.',
+    overviewDescription: 'Consider outdoor interests such as trekking and water activities when planning a Thailand trip. Suitable routes, equipment, qualifications and conditions need to be confirmed for each activity.',
     color: 'hsl(210, 70%, 50%)',
     bgColor: 'hsl(210, 80%, 85%)',
     images: { hero: t2Hero, texture: t2Texture, aerial: t2Aerial },
@@ -153,11 +132,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Join verified local companions for hiking, water sports, and outdoor adventures across Thailand.',
       canonical: 'https://tirak.app/adventure',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '5' },
-      { label: 'Avg Rating', value: '4.85' },
-    ],
     experiences: [
       { icon: Mountain, title: 'Jungle Trekking', description: 'Multi-day hikes through pristine rainforest with expert guides and wild camping.' },
       { icon: Waves, title: 'Scuba & Snorkeling', description: 'Dive coral reefs and swim with whale sharks alongside certified local instructors.' },
@@ -167,11 +141,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Ship, title: 'Island Hopping', description: 'Charter longtail boats through the Andaman Sea to hidden beaches and secret lagoons.' },
     ],
     companionIds: [3, 4],
-    testimonial: {
-      quote: 'Malee took us to diving spots that the tourist boats don\'t know about. We saw a manta ray and a reef shark in the same dive. Absolutely life-changing.',
-      author: 'James T.',
-      country: 'Australia',
-    },
+    planningTip: 'Discuss difficulty, equipment, weather and any required qualifications before agreeing to an outdoor activity.',
   },
 
   wellness: {
@@ -180,7 +150,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Wellness',
     title: 'Wellness Experiences',
     heroDescription: 'Spa retreats, yoga sessions, and mindful journeys with wellness companions who nurture body and spirit.',
-    overviewDescription: 'Thailand is the global destination for wellness — from ancient Nuad Thai massage to silent vipassana retreats in forest monasteries. Our wellness companions are certified therapists, yoga instructors, and meditation practitioners who create bespoke healing journeys, whether you need a weekend reset or a month-long transformation.',
+    overviewDescription: 'Browse ideas for spa visits, yoga and relaxation. Any practitioner’s qualifications, treatment details and availability need to be checked directly.',
     color: 'hsl(155, 65%, 45%)',
     bgColor: 'hsl(155, 75%, 80%)',
     images: { hero: t3Hero, texture: t3Texture, aerial: t3Aerial },
@@ -191,11 +161,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Rejuvenate with spa treatments, yoga, and meditation led by local wellness companions.',
       canonical: 'https://tirak.app/wellness',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '4' },
-      { label: 'Avg Rating', value: '4.90' },
-    ],
     experiences: [
       { icon: Flower2, title: 'Thai Spa Retreats', description: 'Full-day pampering at world-class spas with herbal compresses and aromatherapy.' },
       { icon: Heart, title: 'Yoga & Breathwork', description: 'Sunrise yoga on the beach, sunset sessions in jungle studios, and guided pranayama.' },
@@ -205,11 +170,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Moon, title: 'Sound Healing Journeys', description: 'Crystal bowls, gongs, and Tibetan singing bowls in serene temple settings.' },
     ],
     companionIds: [5, 6],
-    testimonial: {
-      quote: 'Suda designed a three-day retreat that was exactly what I needed — morning meditation, afternoon spa, evening yoga by the river. I left feeling completely renewed.',
-      author: 'Elena R.',
-      country: 'Germany',
-    },
+    planningTip: 'Check practitioner qualifications and treatment details directly before arranging a wellness activity.',
   },
 
   nightlife: {
@@ -218,7 +179,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Nightlife',
     title: 'Nightlife Experiences',
     heroDescription: 'Rooftop bars, beach clubs, and after-dark adventures with local guides who know every hidden venue.',
-    overviewDescription: 'Bangkok\'s skyline bars, Phuket\'s beach clubs, and Chiang Mai\'s jazz lounges make Thailand one of Asia\'s most electric nightlife destinations. Our nightlife companions know the door staff, the best tables, the secret speakeasies, and the late-night street food spots that fuel the next round.',
+    overviewDescription: 'Explore ideas for music, rooftop venues and an evening out. Venue access, opening times and transport arrangements need to be confirmed before your visit.',
     color: 'hsl(340, 70%, 55%)',
     bgColor: 'hsl(340, 80%, 85%)',
     images: { hero: t4Hero, texture: t4Texture, aerial: t4Aerial },
@@ -229,11 +190,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Experience Thailand\'s vibrant nightlife with local companions who know the best spots.',
       canonical: 'https://tirak.app/nightlife',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '6' },
-      { label: 'Avg Rating', value: '4.80' },
-    ],
     experiences: [
       { icon: PartyPopper, title: 'Rooftop Bar Crawls', description: 'Hit Bangkok\'s iconic skyline bars with a local who gets you the best views and skip the queues.' },
       { icon: Martini, title: 'Speakeasy Discovery', description: 'Find hidden cocktail bars behind unmarked doors — places only locals know exist.' },
@@ -243,11 +199,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Zap, title: 'Late Night Street Food', description: 'Fuel up at the 2am noodle stalls and night markets that Bangkok\'s party-goers swear by.' },
     ],
     companionIds: [7, 8],
-    testimonial: {
-      quote: 'Tun got us into a speakeasy I would never have found on my own — behind a barbershop in Thonglor. Best old-fashioned I\'ve ever had.',
-      author: 'Marco P.',
-      country: 'Italy',
-    },
+    planningTip: 'Agree on meeting points, transport and venue rules before a night out.',
   },
 
   lifestyle: {
@@ -256,7 +208,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Lifestyle',
     title: 'Lifestyle Experiences',
     heroDescription: 'Shopping districts, local boutiques, and everyday Thai life with companions who curate your perfect day.',
-    overviewDescription: 'Bangkok is a lifestyle capital — from the vintage shophouses of Charoen Krung to the concept malls of Sukhumvit, from co-working cafes in Ari to bespoke tailoring in Silom. Our lifestyle companions are creatives, fashionistas, and city insiders who know where to find the best of modern Thai living.',
+    overviewDescription: 'Plan around your interests in shopping, cafes and everyday local life. Discuss timing, budget and accessibility before agreeing to an outing.',
     color: 'hsl(35, 75%, 50%)',
     bgColor: 'hsl(35, 85%, 80%)',
     images: { hero: t5Hero, aerial: t5Aerial },
@@ -267,11 +219,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Shop, explore, and experience local lifestyle with Thai companions.',
       canonical: 'https://tirak.app/lifestyle',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '3' },
-      { label: 'Avg Rating', value: '4.85' },
-    ],
     experiences: [
       { icon: ShoppingBag, title: 'Boutique Shopping Tours', description: 'Curated walks through independent Thai designer shops and vintage concept stores.' },
       { icon: Coffee, title: 'Specialty Coffee Crawls', description: 'Explore Bangkok\'s thriving third-wave coffee scene with a local cafe connoisseur.' },
@@ -281,11 +228,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Globe, title: 'Expat Neighborhood Tours', description: 'Discover the neighborhoods where digital nomads and creatives build their Thai lives.' },
     ],
     companionIds: [9, 10],
-    testimonial: {
-      quote: 'Prae showed me a side of Bangkok I didn\'t know existed — independent Thai designers, third-wave coffee shops, and an art gallery hidden above a noodle shop.',
-      author: 'Yuki N.',
-      country: 'Japan',
-    },
+    planningTip: 'Share your interests, timing and budget when discussing a local outing.',
   },
 
   cinema: {
@@ -294,7 +237,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Cinema',
     title: 'Cinema & Film Experiences',
     heroDescription: 'Film locations, indie theaters, and movie nights with local cinephiles who share their passion for the screen.',
-    overviewDescription: 'Thailand\'s film scene spans from Apichatpong Weerasethakul\'s Palme d\'Or-winning art-house cinema to the stunning locations of Hollywood blockbusters. Our cinema companions are directors, critics, and film buffs who take you behind the camera — from Bangkok\'s vintage screening rooms to the Chiang Mai locations of your favorite films.',
+    overviewDescription: 'Use film locations and cinema visits as inspiration for your trip. Screening schedules, access and guide expertise need to be confirmed directly.',
     color: 'hsl(250, 65%, 55%)',
     bgColor: 'hsl(250, 75%, 85%)',
     images: { hero: t6Hero, texture: t6Texture, aerial: t6Aerial },
@@ -305,11 +248,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Explore film locations and cinema culture with local companions.',
       canonical: 'https://tirak.app/cinema',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '3' },
-      { label: 'Avg Rating', value: '4.75' },
-    ],
     experiences: [
       { icon: Film, title: 'Film Location Tours', description: 'Visit the beaches, temples, and cityscapes featured in international and Thai films.' },
       { icon: Clapperboard, title: 'Thai Cinema History', description: 'Learn about Thailand\'s Golden Age of cinema and its modern indie film renaissance.' },
@@ -319,11 +257,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Monitor, title: 'Behind-the-Scenes Tours', description: 'Visit studios, meet local filmmakers, and see how Thai productions come together.' },
     ],
     companionIds: [11, 12],
-    testimonial: {
-      quote: 'Nat took us to the exact beach from "The Beach" and then to a rooftop screening of a Thai film I\'d never heard of but absolutely loved.',
-      author: 'David L.',
-      country: 'Canada',
-    },
+    planningTip: 'Check screening times, language options and access requirements before planning a film-related visit.',
   },
 
   events: {
@@ -332,7 +266,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Events',
     title: 'Events & Festivals',
     heroDescription: 'Beach parties, cultural festivals, and unforgettable events with local guides who bring the spectacle to life.',
-    overviewDescription: 'Thailand\'s calendar is packed with spectacle — from the sky lanterns of Yi Peng to the water fights of Songkran, from Muay Thai championships to full-moon beach parties. Our events companions are festival veterans, sports insiders, and cultural experts who get you the best experience, not just a ticket.',
+    overviewDescription: 'Discover ideas for festivals, sport and local events. Dates, access and tickets depend on the organizer and are not guaranteed by this page.',
     color: 'hsl(15, 75%, 55%)',
     bgColor: 'hsl(15, 85%, 80%)',
     images: { hero: t7Hero, texture: t7Texture, aerial: t7Aerial },
@@ -343,11 +277,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Experience festivals, parties, and cultural events with local companions.',
       canonical: 'https://tirak.app/events',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '5' },
-      { label: 'Avg Rating', value: '4.85' },
-    ],
     experiences: [
       { icon: CalendarDays, title: 'Festival Immersion', description: 'Experience Songkran, Loy Krathong, and Yi Peng with locals who explain every tradition.' },
       { icon: Flame, title: 'Muay Thai Events', description: 'Ringside seats at authentic Muay Thai stadiums with companions who know the fighters.' },
@@ -357,11 +286,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: Sparkle, title: 'Full Moon & Beach Parties', description: 'The legendary Koh Phangan parties with a local who knows the safest and best spots.' },
     ],
     companionIds: [13, 14],
-    testimonial: {
-      quote: 'Joy got us front-row at a Muay Thai championship in Lumpinee Stadium and explained every move. Then we released lanterns at Yi Peng. Best weekend of my life.',
-      author: 'Carlos G.',
-      country: 'Spain',
-    },
+    planningTip: 'Check event dates, admission requirements and ticket availability directly with the organizer.',
   },
 
   fooddrink: {
@@ -370,7 +295,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     name: 'Food & Drink',
     title: 'Food & Drink Experiences',
     heroDescription: 'Street food tours, cooking classes, and culinary adventures with local companions who live to eat.',
-    overviewDescription: 'Thai cuisine is the world\'s most complex and beloved street food culture — and it goes far deeper than pad thai. Our food companions are chefs, market vendors, and obsessive food hunters who take you from smoky wok stations in Chinatown to Michelin-starred street stalls, from hands-on cooking classes to secret family recipes passed down for generations.',
+    overviewDescription: 'Explore food markets, cooking and local dining ideas. Check availability, dietary requirements and any activity costs before making arrangements.',
     color: 'hsl(45, 85%, 55%)',
     bgColor: 'hsl(45, 90%, 80%)',
     images: { hero: t8Hero, texture: t8Texture, aerial: t8Aerial },
@@ -381,11 +306,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       description: 'Discover authentic Thai cuisine with local food companions.',
       canonical: 'https://tirak.app/food',
     },
-    stats: [
-      { label: 'Companions', value: '2' },
-      { label: 'Locations', value: '4' },
-      { label: 'Avg Rating', value: '4.95' },
-    ],
     experiences: [
       { icon: UtensilsCrossed, title: 'Street Food Tours', description: 'Navigate Bangkok\'s legendary street food scene — from Yaowarat to Victory Monument — with a local expert.' },
       { icon: ChefHat, title: 'Cooking Classes', description: 'Learn to make authentic pad kra pao, tom yum, and mango sticky rice from Thai home cooks.' },
@@ -395,10 +315,6 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
       { icon: IceCream, title: 'Dessert & Sweets Tours', description: 'Thai desserts are an art form — discover mango sticky rice, roti, and coconut ice cream stalls.' },
     ],
     companionIds: [15, 16],
-    testimonial: {
-      quote: 'Niran took us to a 70-year-old noodle stall hidden behind a temple that had the best boat noodles I\'ve ever tasted. No guidebook has this place.',
-      author: 'Lisa K.',
-      country: 'United States',
-    },
+    planningTip: 'Discuss food preferences, allergies and dietary requirements before arranging a food experience.',
   },
 };

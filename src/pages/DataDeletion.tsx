@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
+import { submitSupportRequest } from '@/lib/support-intake';
 
 interface FormData {
   email: string;
@@ -29,6 +30,7 @@ export function DataDeletion() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [requestId, setRequestId] = useState('');
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -58,12 +60,6 @@ export function DataDeletion() {
       newErrors.specificReason = 'Please specify your reason';
     } else if (formData.reason === 'other' && formData.specificReason.length > 500) {
       newErrors.specificReason = 'Reason must be less than 500 characters';
-    }
-
-    // Additional validation for data types
-    if (formData.dataTypes.length === 0) {
-      // This is optional, but we could warn users
-      console.warn('No specific data types selected - will delete all data');
     }
 
     setErrors(newErrors);
@@ -97,7 +93,7 @@ export function DataDeletion() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       // Scroll to first error
       const firstErrorElement = document.querySelector('[aria-invalid="true"]') as HTMLElement;
@@ -112,31 +108,26 @@ export function DataDeletion() {
     setErrors(prev => ({ ...prev, submit: undefined })); // Clear any previous submit errors
 
     try {
-      const fd = new FormData();
-      fd.set('email', formData.email.trim());
-      fd.set('reason', formData.reason);
-      fd.set('specificReason', formData.specificReason.trim());
-      fd.set('dataTypes', formData.dataTypes.join(','));
-      fd.set('additionalInfo', formData.additionalInfo.trim());
-      fd.set('_subject', 'Data Deletion Request');
-      const res = await fetch('https://formspree.io/f/xeorzjly', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd,
+      const receipt = await submitSupportRequest({
+        kind: 'privacy_deletion',
+        name: 'Privacy requester',
+        email: formData.email,
+        subject: 'Privacy and data deletion request',
+        message: [
+          `Reason: ${formData.reason}`,
+          formData.specificReason.trim(),
+          `Requested data: ${formData.dataTypes.length ? formData.dataTypes.join(', ') : 'Please discuss the scope with me'}`,
+          formData.additionalInfo.trim(),
+        ].filter(Boolean).join('\n'),
       });
-      const result = await res.json();
-      if (!res.ok) {
-        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : `Server error: ${res.status}`;
-        throw new Error(msg);
-      }
+      setRequestId(receipt.requestId);
       setIsSubmitted(true);
     } catch (error) {
-      console.error('Error submitting form:', error);
       setErrors(prev => ({
         ...prev,
-        submit: 'There was an error submitting your request. Please try again or contact support if the problem persists.'
+        submit: 'Your request could not be confirmed. Your details are still here. Retry or email contact@tirak.app.'
       }));
-      
+
       // Scroll to error message
       setTimeout(() => {
         const errorElement = document.getElementById('submit-error');
@@ -154,12 +145,12 @@ export function DataDeletion() {
       <>
         <SEO
           title="Data Deletion Request Submitted — Tirak"
-          description="Your data deletion request has been successfully submitted. We will process your request within 30 days."
+          description="Your privacy request has been recorded for review. Submitting a request does not delete your account or data."
           canonical="https://tirak.app/data-deletion"
           noindex={true}
         />
-        
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+
+        <div className="min-h-screen pt-32 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="container mx-auto px-6 py-16">
           <div className="max-w-2xl mx-auto text-center">
             <div className="glass-card rounded-xl shadow-elevated p-8 border border-border">
@@ -168,31 +159,31 @@ export function DataDeletion() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              
+
               <h1 className="text-responsive-lg font-bold font-inter text-contrast mb-4">
-                Request Submitted Successfully
+                Privacy Request Received
               </h1>
-              
+
               <p className="text-xl text-contrast-secondary mb-6">
-                Thank you for submitting your data deletion request. We have received your request and will process it within 30 business days.
+                Your request has been recorded. Reference: {requestId}. No account or data has been deleted by this submission.
               </p>
-              
+
               <div className="glass-light rounded-xl p-4 mb-6">
                 <p className="text-sm text-primary">
                   <strong>What happens next:</strong><br />
                   • We will verify your identity and account details<br />
-                  • Your data will be permanently deleted from our systems<br />
-                  • You will receive a confirmation email once the process is complete
+                  • The team will review the requested scope and any required retention<br />
+                  • Ask contact@tirak.app about progress using your request reference
                 </p>
               </div>
-              
+
               <p className="text-sm text-muted-foreground mb-6">
                 If you have any questions about this process, please contact us at{' '}
-                <a href="mailto:privacy@tirak.app" className="text-primary hover:underline">
-                  privacy@tirak.app
+                <a href="mailto:contact@tirak.app" className="text-primary hover:underline">
+                  contact@tirak.app
                 </a>
               </p>
-              
+
               <button
                 onClick={() => window.location.href = '/'}
                 className="bg-button hover:shadow-glow text-primary-foreground font-semibold py-3 px-6 rounded-xl transition-all duration-200"
@@ -203,7 +194,7 @@ export function DataDeletion() {
           </div>
         </div>
         </div>
-        
+
         <Footer />
       </>
     );
@@ -213,7 +204,7 @@ export function DataDeletion() {
     <>
       <SEO
         title="Data Deletion Request — Tirak Privacy Center"
-        description="Request deletion of your personal data from Tirak. Submit a secure form to permanently remove your information from our systems."
+        description="Request deletion of your personal data from Tirak. Submit a request for review and identity verification before any data action."
         canonical="https://tirak.app/data-deletion"
         openGraph={{
           'og:title': 'Data Deletion Request — Tirak Privacy Center',
@@ -229,7 +220,7 @@ export function DataDeletion() {
           'twitter:image': 'https://tirak.app/og.jpg'
         }}
       />
-      
+
       <div className="min-h-screen pt-24 pb-16">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
@@ -239,7 +230,7 @@ export function DataDeletion() {
                 Data Deletion Request
               </h1>
               <p className="text-xl text-contrast-secondary max-w-2xl mx-auto">
-                We respect your privacy and your right to control your personal data. 
+                We respect your privacy and your right to control your personal data.
                 Use this form to request permanent deletion of your information from our systems.
               </p>
             </div>
@@ -249,11 +240,11 @@ export function DataDeletion() {
               <h2 className="text-xl font-semibold font-inter text-contrast mb-4">
                 Before You Submit
               </h2>
-              
+
               <div className="space-y-4 text-contrast-secondary">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p><strong>Processing Time:</strong> Your request will be processed within 30 business days</p>
+                  <p><strong>Request Review:</strong> The team will review your request and any identity checks required</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
@@ -261,18 +252,18 @@ export function DataDeletion() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p><strong>Permanent Action:</strong> Once deleted, your data cannot be recovered</p>
+                  <p><strong>Submission:</strong> This form records your request; it does not perform deletion</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p><strong>Account Closure:</strong> Deleting your data will permanently close your Tirak account</p>
+                  <p><strong>Account Status:</strong> Your account stays unchanged while the request is reviewed</p>
                 </div>
               </div>
             </div>
 
             {/* Form */}
             <div className="glass-card rounded-xl shadow-elevated p-8 border border-border">
-              <form action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6">
+              <form acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6">
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-contrast mb-2">
@@ -285,8 +276,8 @@ export function DataDeletion() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                      errors.email 
-                        ? 'border-destructive bg-destructive/10' 
+                      errors.email
+                        ? 'border-destructive bg-destructive/10'
                         : 'border-border bg-background'
                     } text-contrast placeholder-muted-foreground`}
                     placeholder="Enter the email associated with your Tirak account"
@@ -313,8 +304,8 @@ export function DataDeletion() {
                     value={formData.reason}
                     onChange={handleInputChange}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                      errors.reason 
-                        ? 'border-destructive bg-destructive/10' 
+                      errors.reason
+                        ? 'border-destructive bg-destructive/10'
                         : 'border-border bg-background'
                     } text-contrast`}
                     aria-describedby={errors.reason ? "reason-error" : "reason-help"}
@@ -355,8 +346,8 @@ export function DataDeletion() {
                       rows={4}
                       maxLength={500}
                       className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical ${
-                        errors.specificReason 
-                          ? 'border-destructive bg-destructive/10' 
+                        errors.specificReason
+                          ? 'border-destructive bg-destructive/10'
                           : 'border-border bg-background'
                       } text-contrast placeholder-muted-foreground`}
                       placeholder="Please provide more details about your reason for data deletion. Your feedback is confidential and helps us improve."
@@ -438,7 +429,7 @@ export function DataDeletion() {
                       </div>
                     </div>
                   )}
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -462,17 +453,17 @@ export function DataDeletion() {
                       </span>
                     )}
                   </button>
-                  
+
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    This action cannot be undone. Please review your request carefully before submitting.
+                    Submitting records a request for review. Your account and data remain unchanged by this form.
                   </p>
                 </div>
 
                 {/* Legal Notice */}
                 <div className="glass-light rounded-xl p-4 mt-6">
                   <p className="text-sm text-contrast-secondary">
-                    <strong>Legal Notice:</strong> By submitting this form, you confirm that you are the rightful owner of the account 
-                    and understand that this action is irreversible. We may retain certain information as required by law or for 
+                    <strong>Legal Notice:</strong> By submitting this form, you confirm that you are the rightful owner of the account
+                    and understand that submitting this form records a request for review. We may retain certain information as required by law or for
                     legitimate business purposes as outlined in our{' '}
                     <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
                   </p>
@@ -482,7 +473,7 @@ export function DataDeletion() {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </>
   );

@@ -39,17 +39,7 @@ const CategoryOverview = ({ config }: CategoryOverviewProps) => {
 
               {/* Quick stats */}
               <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-3 gap-6 text-center">
-                {config.stats.map((stat) => (
-                  <div key={stat.label}>
-                    <div
-                      className="text-2xl sm:text-3xl font-bold"
-                      style={{ color: config.color }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-white/50 mt-1">{stat.label}</div>
-                  </div>
-                ))}
+                {[{ value: String(config.experiences.length), label: 'Planning ideas' }, { value: 'Discuss', label: 'Your preferences' }, { value: 'Check', label: 'Availability in app' }].map(item => <div key={item.label}><div className="text-xl sm:text-2xl font-bold" style={{ color: config.color }}>{item.value}</div><div className="text-sm text-white/50 mt-1">{item.label}</div></div>)}
               </div>
             </div>
 
@@ -68,8 +58,8 @@ const CategoryOverview = ({ config }: CategoryOverviewProps) => {
                     className="w-full h-full object-cover"
                   />
                   <div
-                    className="absolute inset-0 rounded-2xl ring-1 ring-inset"
-                    style={{ ringColor: `${config.color}30` }}
+                    className="absolute inset-0 rounded-2xl border"
+                    style={{ borderColor: `${config.color}30` }}
                   />
                 </div>
               </div>

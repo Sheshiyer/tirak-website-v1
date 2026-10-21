@@ -1,0 +1,11 @@
+# Individual-guide integration into public design
+
+Ported core-intake client, GuideApplication and63 existing tests from isolated QA donor into public Sheshiyer source. Added /apply without removing any21 existing route declarations (including wildcard and city/category/vendor paths). ForLocalGuides now links to /apply with honest Apply CTA. Existing public App/Header/Footer/design retained. Corrected nested main landmark, absolute application canonical and removed unsupported certified-guide wording. Private receipt state marks itself noindex. API base remains explicit VITE_CORE_API_URL; no implicit production fallback. The local build lacks that value deliberately, so this browser check does not claim connected submission.
+
+Verification:63/63 intake/status tests pass; Vite build5.79s pass. App TS retains exactly8 pre-existing theme/ringColor diagnostics, with no added errors. Browser desktop1164 and measured mobile355 widths equal document width. Heading top176 versus header bottom122desktop/126mobile. One main landmark, canonical https://tirak.app/apply, correct title. Screenshots in outer launch evidence public-guide-port-desktop/mobile-20261020.jpg. No production submission, persistence/deployed/device acceptance inferred.
+
+npm package-lock baseline was stale; installed dependencies and added vitest. No push or deploy. Remaining launch tasks include truth/copy, support delivery/admin, complete crawler metadata, store links, existing public form contracts, app TS baseline and connected QA journey.
+
+Follow-up: all8 baseline TypeScript diagnostics repaired while preserving documented dark-only design. Removed unreferenced legacy ThemeToggle (December922ee93 already removed its use), aligned App defaultdark with actual provider, replaced invalid ringColor with an actual CSS border. App/node TS now both pass;63tests pass again and Vitebuild5.17spass. Independent routed review was pressure-denied; no independent audit is claimed. Source may be committed for durable review without promotion.
+
+Legacy contact API safety port: reused verified donor handler and8regressions; missingprovider503, malformedtypes400, no personal-contentlogs. Public Formspree forms are separate and still await Core transportintegration. This does not establish livecontactdelivery.

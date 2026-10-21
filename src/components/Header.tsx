@@ -7,7 +7,7 @@ import tirakLogo from '@/assets/logos/tirak-logo.png';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Explore', href: '#explore' },
-  { label: 'Stories', href: '#companion-stories' },
+  { label: 'Inspiration', href: '#companion-stories' },
   { label: 'For Guides', href: '#for-guides' },
   { label: 'Contact', href: '/contact' },
 ];

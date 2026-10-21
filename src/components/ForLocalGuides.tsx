@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Calendar, MessageCircle, Star, Play, Users, DollarSign, TrendingUp } from 'lucide-react';
 import guideVideo from '@/assets/Imagine Grok Video (7).mp4';
 
@@ -15,8 +16,8 @@ const features = [
   },
   {
     icon: Star,
-    title: 'Ratings & Reviews System',
-    description: 'Build your reputation and showcase your expertise with verified reviews.',
+    title: 'Your Guide Profile',
+    description: 'Showcase your local knowledge through your profile and services.',
   },
 ];
 
@@ -39,7 +40,7 @@ const ForLocalGuides = () => {
                 </span>
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-contrast-secondary font-inter leading-relaxed max-w-xl">
-                Guide travelers through authentic local experiences and build a sustainable income sharing your knowledge of Thailand.
+                Guide travelers through authentic local experiences and offer your knowledge of Thailand. Bookings and earnings are not guaranteed.
               </p>
             </div>
 
@@ -72,12 +73,14 @@ const ForLocalGuides = () => {
             {/* Enhanced CTA Button */}
             <div className="pt-4 sm:pt-6">
               <Button 
+                asChild
                 size="lg" 
                 className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 will-change-transform hardware-accelerated"
-                aria-label="Start earning as a local guide"
               >
+                <Link to="/apply" aria-label="Apply as a local guide">
                 <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Start Earning Today
+                Apply as a Local Guide
+                </Link>
               </Button>
             </div>
           </div>
@@ -98,17 +101,17 @@ const ForLocalGuides = () => {
                   loop
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
-                  aria-label="Local guide preparing Thai cuisine"
+                  aria-label="Illustrative video of Thai cuisine preparation"
                 />
 
                 {/* Enhanced Overlay Text */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="glass-card p-3 sm:p-4 rounded-xl">
                     <h3 className="text-white font-semibold text-sm sm:text-base mb-1">
-                      Guide Success Stories
+                      Share Your Local Knowledge
                     </h3>
                     <p className="text-white/80 text-xs sm:text-sm">
-                      See how local guides are earning ฿15,000+ monthly
+                      Illustrative guide introduction; earnings depend on actual bookings.
                     </p>
                   </div>
                 </div>
@@ -117,7 +120,7 @@ const ForLocalGuides = () => {
                 <div className="absolute top-4 left-4">
                   <div className="flex items-center space-x-2 glass-card px-2 sm:px-3 py-1 sm:py-1.5 rounded-full">
                     <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="text-white text-xs font-medium">LIVE</span>
+                    <span className="text-white text-xs font-medium">Illustrative video</span>
                   </div>
                 </div>
               </div>
@@ -129,8 +132,8 @@ const ForLocalGuides = () => {
                 <div className="flex items-center space-x-2">
                   <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   <div className="text-right">
-                    <div className="text-xs sm:text-sm font-bold text-contrast">2.1k</div>
-                    <div className="text-xs text-contrast-secondary">watching</div>
+                    <div className="text-xs sm:text-sm font-bold text-contrast">Apply</div>
+                    <div className="text-xs text-contrast-secondary">For review</div>
                   </div>
                 </div>
               </div>
@@ -141,8 +144,8 @@ const ForLocalGuides = () => {
                 <div className="flex items-center space-x-2">
                   <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" />
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-contrast">฿500+</div>
-                    <div className="text-xs text-contrast-secondary">Avg. Monthly Earnings</div>
+                    <div className="text-xs sm:text-sm font-bold text-contrast">Your rates</div>
+                    <div className="text-xs text-contrast-secondary">Your services</div>
                   </div>
                 </div>
               </div>
@@ -153,8 +156,8 @@ const ForLocalGuides = () => {
                 <div className="flex items-center space-x-2">
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" fill="currentColor" />
                   <div className="text-right">
-                    <div className="text-xs sm:text-sm font-bold text-contrast">4.9★</div>
-                    <div className="text-xs text-contrast-secondary">Guide Rating</div>
+                    <div className="text-xs sm:text-sm font-bold text-contrast">Your schedule</div>
+                    <div className="text-xs text-contrast-secondary">Your availability</div>
                   </div>
                 </div>
               </div>
@@ -171,13 +174,13 @@ const ForLocalGuides = () => {
       <div className="mt-12 sm:mt-16 lg:hidden text-center">
         <div className="glass-card p-6 rounded-3xl max-w-sm mx-auto">
           <h3 className="text-lg font-bold text-contrast mb-2">Ready to Start?</h3>
-          <p className="text-sm text-contrast-secondary mb-4">Join 1000+ guides earning with Tirak</p>
-          <Button 
+          <p className="text-sm text-contrast-secondary mb-4">Submit your profile, services and availability for review.</p>
+          <Button
+            asChild
             size="lg" 
             className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white rounded-xl font-semibold"
           >
-            <TrendingUp className="w-5 h-5 mr-2" />
-            Get Started
+            <Link to="/apply"><TrendingUp className="w-5 h-5 mr-2" aria-hidden="true" />Apply as a Guide</Link>
           </Button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
+import { submitSupportRequest } from '@/lib/support-intake';
 
 interface FormData {
   name: string;
@@ -33,6 +34,7 @@ const Contact: React.FC = () => {
     honeypot: '' // Hidden field for spam detection
   });
 
+  const [requestId, setRequestId] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
   const [submissionState, setSubmissionState] = useState<SubmissionState>({
     isSubmitting: false,
@@ -72,8 +74,8 @@ const Contact: React.FC = () => {
       newErrors.subject = 'Subject is required';
     } else if (formData.subject.trim().length < 3) {
       newErrors.subject = 'Subject must be at least 3 characters long';
-    } else if (formData.subject.trim().length > 200) {
-      newErrors.subject = 'Subject must be less than 200 characters';
+    } else if (formData.subject.trim().length > 150) {
+      newErrors.subject = 'Subject must be 150 characters or fewer';
     }
 
     // Message validation
@@ -147,21 +149,8 @@ const Contact: React.FC = () => {
     setErrors({});
 
     try {
-      const fd = new FormData(formRef.current as HTMLFormElement);
-      fd.set('_subject', `Contact: ${formData.subject.trim()}`);
-      const response = await fetch('https://formspree.io/f/xeorzjly', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-        },
-        body: fd,
-      });
-
-      const result = await response.json();
-      if (!response.ok) {
-        const msg = Array.isArray(result.errors) && result.errors[0]?.message ? result.errors[0].message : `Server error: ${response.status}`;
-        throw new Error(msg);
-      }
+      const receipt = await submitSupportRequest({ kind: 'contact', ...formData });
+      setRequestId(receipt.requestId);
 
       // Success
       lastSubmissionTime.current = now;
@@ -177,12 +166,11 @@ const Contact: React.FC = () => {
       }, 100);
 
     } catch (error) {
-      console.error('Contact form submission error:', error);
       const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
       setSubmissionState({
         isSubmitting: false,
         isSuccess: false,
-        error: `Failed to send message: ${errorMessage}. Please try again or contact us directly at contact@tirak.app`
+        error: errorMessage
       });
       
       // Scroll to error message
@@ -196,7 +184,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
+    <div className="min-h-screen pt-40 pb-16">
       <SEO
         title="Contact Us — Tirak Travel Companion Platform"
         description="Get in touch with Tirak for support, partnerships, or questions about our travel companion platform connecting travelers with local guides in Thailand."
@@ -279,7 +267,7 @@ const Contact: React.FC = () => {
                         </div>
                         <div>
                           <h3 className="font-medium text-contrast">Response Time</h3>
-                          <p className="text-contrast-secondary">Within 24 hours</p>
+                          <p className="text-contrast-secondary">Contact the Tirak team</p>
                         </div>
                       </div>
                     </div>
@@ -291,7 +279,7 @@ const Contact: React.FC = () => {
                     </h3>
                     <p className="text-contrast-secondary text-sm">
                       If you're a local in Thailand and want to share your knowledge with travelers, 
-                      we'd love to hear from you! Mention "Guide Application" in your subject line.
+                      use the dedicated guide application at tirak.app/apply.
                     </p>
                   </div>
                 </div>
@@ -317,9 +305,9 @@ const Contact: React.FC = () => {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <h3 className="font-medium text-green-800 dark:text-green-200">Message Sent Successfully!</h3>
+                      <h3 className="font-medium text-green-800 dark:text-green-200">Message Received</h3>
                       <p className="text-green-700 dark:text-green-300 text-sm mt-1">
-                        Thank you for contacting us. We'll get back to you within 24 hours.
+                        Your message has been recorded for the Tirak team. Reference: {requestId}.
                       </p>
                     </div>
                   </div>
@@ -348,7 +336,7 @@ const Contact: React.FC = () => {
                 </div>
               )}
 
-              <form ref={formRef} action="https://formspree.io/f/xeorzjly" method="POST" acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form ref={formRef} acceptCharset="UTF-8" onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* Honeypot field (hidden) */}
                 <input
                   type="text"
@@ -444,7 +432,7 @@ const Contact: React.FC = () => {
                         : 'border-border bg-background'
                     } text-contrast placeholder-muted-foreground`}
                     placeholder="What's this about?"
-                    maxLength={200}
+                    maxLength={150}
                     aria-describedby={errors.subject ? 'subject-error' : undefined}
                     aria-invalid={errors.subject ? 'true' : 'false'}
                     required
@@ -517,7 +505,7 @@ const Contact: React.FC = () => {
                 </button>
                 
                 <p id="submit-help" className="text-xs text-muted-foreground text-center">
-                  We'll respond to your message within 24 hours.
+                  Keep your request reference when following up with contact@tirak.app.
                 </p>
               </form>
             </div>

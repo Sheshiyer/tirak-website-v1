@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/",
+    "title": "Tirak \u2014 Local Connections and Thailand Travel Ideas",
+    "description": "Explore Thailand travel ideas, check Tirak app availability, or apply to offer local guide experiences.",
+    "index": true
+  },
+  {
+    "path": "/tirak",
+    "title": "Explore Thailand with Tirak",
+    "description": "Find the Tirak download paths and explore ideas for connecting with local guides in Thailand.",
+    "index": true
+  },
+  {
+    "path": "/download",
+    "title": "Get Tirak \u2014 Android and iPhone Access",
+    "description": "Open Tirak on Google Play or ask the team about current iPhone access options.",
+    "index": true
+  },
+  {
+    "path": "/apply",
+    "title": "Apply as a Local Guide \u2014 Tirak",
+    "description": "Submit your profile, local services and weekly availability for review by the Tirak team.",
+    "index": true
+  },
+  {
+    "path": "/contact",
+    "title": "Contact Tirak",
+    "description": "Contact the Tirak team with questions about the app, guide applications or support.",
+    "index": true
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy \u2014 Tirak",
+    "description": "Read how Tirak handles personal information and how to contact the team about privacy.",
+    "index": true
+  },
+  {
+    "path": "/terms",
+    "title": "Terms of Service \u2014 Tirak",
+    "description": "Read the terms for using the Tirak platform and local guide services.",
+    "index": true
+  },
+  {
+    "path": "/data-deletion",
+    "title": "Privacy and Data Deletion Requests \u2014 Tirak",
+    "description": "Submit a privacy or account-data request to the Tirak team for review.",
+    "index": false
+  },
+  {
+    "path": "/supplier-onboarding",
+    "title": "Guide Applications \u2014 Tirak",
+    "description": "Apply as an individual local guide through the Tirak guide application flow.",
+    "index": false
+  },
+  {
+    "path": "/landing",
+    "title": "Explore Tirak",
+    "description": "Explore Thailand with Tirak.",
+    "index": false
+  },
+  {
+    "path": "/bangkok",
+    "title": "Bangkok Travel Ideas and Local Connections \u2014 Tirak",
+    "description": "Explore Bangkok trip inspiration and check the Tirak app for current guide and service availability.",
+    "index": true
+  },
+  {
+    "path": "/chiang-mai",
+    "title": "Chiang Mai Travel Ideas and Local Connections \u2014 Tirak",
+    "description": "Explore Chiang Mai trip inspiration and check the Tirak app for current guide and service availability.",
+    "index": true
+  },
+  {
+    "path": "/phuket",
+    "title": "Phuket Travel Ideas and Local Connections \u2014 Tirak",
+    "description": "Explore Phuket trip inspiration and check the Tirak app for current guide and service availability.",
+    "index": true
+  },
+  {
+    "path": "/culture",
+    "title": "Culture Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative culture ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/adventure",
+    "title": "Adventure Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative adventure ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/wellness",
+    "title": "Wellness Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative wellness ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/nightlife",
+    "title": "Nightlife Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative nightlife ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/food",
+    "title": "Food and Drink Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative food and drink ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/lifestyle",
+    "title": "Lifestyle Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative lifestyle ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/cinema",
+    "title": "Cinema Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative cinema ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  },
+  {
+    "path": "/events",
+    "title": "Events Ideas in Thailand \u2014 Tirak",
+    "description": "Explore illustrative events ideas for your Thailand trip. Check guide availability and arrangements in the Tirak app.",
+    "index": true
+  }
+]

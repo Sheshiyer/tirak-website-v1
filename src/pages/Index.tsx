@@ -41,7 +41,7 @@ const Index = () => {
       </section>
       
       {/* Featured Companions */}
-      <section aria-label="Featured companions">
+      <section aria-label="Illustrative local experience ideas">
         <FeaturedCompanions />
       </section>
       

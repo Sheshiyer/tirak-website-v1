@@ -64,90 +64,10 @@ const sanitizeInput = (input: string): string => {
     .trim();
 };
 
-// Format email content
-const formatEmailContent = (data: ContactFormData): string => {
-  return `
-New Contact Form Submission - Tirak Travel Platform
-
-From: ${data.name}
-Email: ${data.email}
-Subject: ${data.subject}
-Submitted: ${new Date(data.timestamp).toLocaleString('en-US', { 
-  timeZone: 'Asia/Bangkok',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit'
-})} (Bangkok Time)
-
-Message:
-${data.message}
-
----
-This message was sent through the Tirak contact form.
-Reply directly to this email to respond to the sender.
-  `.trim();
-};
-
-// Send email using a service (placeholder for actual email service)
-const sendEmail = async (data: ContactFormData): Promise<boolean> => {
-  // In a real implementation, you would use a service like:
-  // - SendGrid
-  // - Mailgun
-  // - AWS SES
-  // - Nodemailer with SMTP
-  
-  const emailContent = formatEmailContent(data);
-  
-  try {
-    // Placeholder for actual email sending logic
-    // Example with fetch to an email service:
-    /*
-    const response = await fetch('https://api.sendgrid.v3/mail/send', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        personalizations: [{
-          to: [{ email: 'contact@tirak.app' }],
-          subject: `Contact Form: ${data.subject}`
-        }],
-        from: { email: 'noreply@tirak.app', name: 'Tirak Contact Form' },
-        reply_to: { email: data.email, name: data.name },
-        content: [{
-          type: 'text/plain',
-          value: emailContent
-        }]
-      })
-    });
-    
-    return response.ok;
-    */
-    
-    // For development/demo purposes, log the email content
-    console.log('Email would be sent to contact@tirak.app:');
-    console.log('Subject:', `Contact Form: ${data.subject}`);
-    console.log('Content:', emailContent);
-    console.log('Reply-To:', `${data.name} <${data.email}>`);
-    
-    // Simulate email sending delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Simulate occasional failures for testing
-    if (Math.random() < 0.1) {
-      throw new Error('Simulated email service error');
-    }
-    
-    return true;
-  } catch (error) {
-    console.error('Email sending failed:', error);
-    return false;
-  }
-};
+// No delivery provider is configured for this website handler. Fail closed:
+// accepting a request without a durable destination would silently lose it.
+// Provider integration must require an observed acceptance ID before returning success.
+const sendEmail = async (_data: ContactFormData): Promise<boolean> => false;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Set CORS headers
@@ -184,7 +104,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
     
     // Validate request body
-    const { name, email, subject, message, timestamp } = req.body as ContactFormData;
+    const body = req.body;
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      return res.status(400).json({ error: 'Invalid request', message: 'A contact form object is required.' });
+    }
+    const { name, email, subject, message, timestamp } = body as ContactFormData;
+    if (![name, email, subject, message].every(value => typeof value === 'string') ||
+        (timestamp !== undefined && typeof timestamp !== 'string')) {
+      return res.status(400).json({ error: 'Invalid fields', message: 'Contact fields must be text.' });
+    }
     
     // Check required fields
     if (!name || !email || !subject || !message) {
@@ -234,9 +162,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const emailSent = await sendEmail(sanitizedData);
     
     if (!emailSent) {
-      return res.status(500).json({
-        error: 'Email delivery failed',
-        message: 'Failed to send email. Please try again or contact us directly.'
+      return res.status(503).json({
+        error: 'Contact service unavailable',
+        message: 'Your message has not been sent. Please contact us directly.'
       });
     }
     
