@@ -146,7 +146,7 @@ export function DataDeletion() {
         <SEO
           title="Data Deletion Request Submitted — Tirak"
           description="Your privacy request has been recorded for review. Submitting a request does not delete your account or data."
-          canonical="https://tirak.app/data-deletion"
+          canonical="https://www.tirak.app/data-deletion"
           noindex={true}
         />
 
@@ -205,19 +205,19 @@ export function DataDeletion() {
       <SEO
         title="Data Deletion Request — Tirak Privacy Center"
         description="Request deletion of your personal data from Tirak. Submit a request for review and identity verification before any data action."
-        canonical="https://tirak.app/data-deletion"
+        canonical="https://www.tirak.app/data-deletion"
         openGraph={{
           'og:title': 'Data Deletion Request — Tirak Privacy Center',
           'og:description': 'Request permanent deletion of your personal data from Tirak.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/data-deletion',
-          'og:image': 'https://tirak.app/og.jpg'
+          'og:url': 'https://www.tirak.app/data-deletion',
+          'og:image': 'https://www.tirak.app/og.jpg'
         }}
         twitter={{
           'twitter:card': 'summary',
           'twitter:title': 'Data Deletion — Tirak',
           'twitter:description': 'Request permanent deletion of your personal data from Tirak.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
       />
 

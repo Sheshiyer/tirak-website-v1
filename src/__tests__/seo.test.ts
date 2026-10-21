@@ -14,8 +14,8 @@ describe('crawler metadata across route navigation', () => {
     expect(new Set(routes.filter(route => route.index).map(route => route.title)).size).toBe(routes.filter(route => route.index).length);
     for (const route of routes) {
       const meta = resolveSeo(route.path, { title: 'Stale page', canonical: '/wrong' });
-      expect(meta.title).toBe(route.title); expect(meta.canonical).toBe('https://tirak.app' + route.path);
+      expect(meta.title).toBe(route.title); expect(meta.canonical).toBe('https://www.tirak.app' + route.path);
     }
-    expect(SOCIAL_IMAGE).toMatch(/^https:\/\/tirak\.app\//);
+    expect(SOCIAL_IMAGE).toMatch(/^https:\/\/www\.tirak\.app\//);
   });
 });

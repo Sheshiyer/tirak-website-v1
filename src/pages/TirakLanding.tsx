@@ -17,20 +17,20 @@ const TirakLanding = () => {
       <SEO 
         title="Tirak - Connect with Local Travel Companions in Thailand"
         description="Experience Thailand through the eyes of locals. Find verified companions for authentic adventures, cultural immersion, and unforgettable travel memories."
-        canonical="https://tirak.app/tirak"
+        canonical="https://www.tirak.app/tirak"
         openGraph={{
           'og:title': 'Tirak - Connect with Local Travel Companions in Thailand',
           'og:description': 'Experience Thailand through the eyes of locals. Find verified companions for authentic adventures and cultural immersion.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/tirak',
-          'og:image': 'https://tirak.app/og.jpg',
+          'og:url': 'https://www.tirak.app/tirak',
+          'og:image': 'https://www.tirak.app/og.jpg',
           'og:image:alt': 'Connect with local travel companions in Thailand'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
           'twitter:title': 'Tirak - Connect with Local Travel Companions in Thailand',
           'twitter:description': 'Experience Thailand with verified companions.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
       />
       {/* Hero */}

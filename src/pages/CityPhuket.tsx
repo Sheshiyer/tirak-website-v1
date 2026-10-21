@@ -8,27 +8,27 @@ const CityPhuket = () => {
       <SEO
         title="Phuket Local Companions — Beaches & Adventure | Tirak"
         description="Explore Phuket with verified local companions. Beaches, island trips, nightlife, and adventure tailored to your vibe."
-        canonical="https://tirak.app/phuket"
+        canonical="https://www.tirak.app/phuket"
         openGraph={{
           'og:title': 'Phuket Local Companions — Beaches & Adventure | Tirak',
           'og:description': 'Explore Phuket with verified local companions. Beaches, island trips, and vibrant nightlife.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/phuket',
-          'og:image': 'https://tirak.app/og.jpg',
+          'og:url': 'https://www.tirak.app/phuket',
+          'og:image': 'https://www.tirak.app/og.jpg',
           'og:image:alt': 'Explore Phuket with local companions on Tirak'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
           'twitter:title': 'Phuket Local Companions | Tirak',
           'twitter:description': 'Beaches, island trips, nightlife — explore Phuket with verified locals.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tirak.app/' },
-            { '@type': 'ListItem', position: 2, name: 'Phuket', item: 'https://tirak.app/phuket' }
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.tirak.app/' },
+            { '@type': 'ListItem', position: 2, name: 'Phuket', item: 'https://www.tirak.app/phuket' }
           ]
         }}
       />

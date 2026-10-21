@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite';
 import routes from '../src/lib/seo-routes.json';
-const origin = 'https://tirak.app';
+const origin = 'https://www.tirak.app';
 const escape = (value: string) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 export function seoBuild(indexing: boolean): Plugin {
   return { name: 'tirak-route-crawler-metadata', enforce: 'post', generateBundle(_, bundle) {

@@ -104,15 +104,18 @@ const SupplierOnboarding = () => {
       });
 
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error((err as any)?.error || 'Submission failed');
+        const err: unknown = await res.json().catch(() => ({}));
+        const message = typeof err === 'object' && err !== null && 'error' in err && typeof err.error === 'string'
+          ? err.error
+          : 'Submission failed';
+        throw new Error(message);
       }
 
       setSubmitted(true);
       toast({ title: "Application submitted!", description: "We'll review your application and get back to you soon." });
       setForm(initialForm);
-    } catch (err: any) {
-      toast({ title: 'Submission failed', description: err.message || 'Please try again.', variant: 'destructive' });
+    } catch (err: unknown) {
+      toast({ title: 'Submission failed', description: err instanceof Error ? err.message : 'Please try again.', variant: 'destructive' });
     } finally {
       setLoading(false);
     }
@@ -124,7 +127,7 @@ const SupplierOnboarding = () => {
         <SEO
           title="Application Submitted — Supplier Onboarding | Tirak"
           description="Your vendor application has been submitted to the Tirak team. We will review and respond within 2-3 business days."
-          canonical="https://tirak.app/supplier-onboarding"
+          canonical="https://www.tirak.app/supplier-onboarding"
           noindex={true}
         />
         <div className="container mx-auto px-4 sm:px-6 max-w-2xl text-center py-20">
@@ -156,27 +159,27 @@ const SupplierOnboarding = () => {
       <SEO
         title="Become a Supplier — Join Tirak's Local Experience Network"
         description="Register as a vendor partner on Thailand's premier platform for curated travel and lifestyle experiences. Reach thousands of high-intent travelers."
-        canonical="https://tirak.app/supplier-onboarding"
+        canonical="https://www.tirak.app/supplier-onboarding"
         openGraph={{
           'og:title': 'Become a Supplier — Join Tirak\'s Local Experience Network',
           'og:description': 'Register as a vendor partner on Thailand\'s premier platform for curated travel and lifestyle experiences.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/supplier-onboarding',
-          'og:image': 'https://tirak.app/og.jpg',
+          'og:url': 'https://www.tirak.app/supplier-onboarding',
+          'og:image': 'https://www.tirak.app/og.jpg',
           'og:image:alt': 'Join Tirak as a supplier partner'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
           'twitter:title': 'Become a Supplier | Tirak',
           'twitter:description': 'Join Thailand\'s premier platform for curated travel experiences.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tirak.app/' },
-            { '@type': 'ListItem', position: 2, name: 'Supplier Onboarding', item: 'https://tirak.app/supplier-onboarding' }
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.tirak.app/' },
+            { '@type': 'ListItem', position: 2, name: 'Supplier Onboarding', item: 'https://www.tirak.app/supplier-onboarding' }
           ]
         }}
       />

@@ -7,19 +7,19 @@ const Terms = () => {
       <SEO
         title="Terms of Service — Tirak Travel Companion Platform"
         description="Read Tirak's terms and conditions for using our travel companion marketplace. User agreements, service guidelines, and legal terms for travelers and guides."
-        canonical="https://tirak.app/terms"
+        canonical="https://www.tirak.app/terms"
         openGraph={{
           'og:title': 'Terms of Service — Tirak',
           'og:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/terms',
-          'og:image': 'https://tirak.app/og.jpg'
+          'og:url': 'https://www.tirak.app/terms',
+          'og:image': 'https://www.tirak.app/og.jpg'
         }}
         twitter={{
           'twitter:card': 'summary',
           'twitter:title': 'Terms of Service — Tirak',
           'twitter:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
       />
       

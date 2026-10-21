@@ -101,7 +101,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Culture Experiences in Thailand — Local Companions | Tirak',
       description: 'Join verified local companions for cultural immersion: temples, traditions, markets, and heritage across Thailand.',
-      canonical: 'https://tirak.app/culture',
+      canonical: 'https://www.tirak.app/culture',
     },
     experiences: [
       { icon: Landmark, title: 'Temple Pilgrimages', description: 'Visit sacred wat complexes with guides who explain Buddhist iconography and meditation practices.' },
@@ -130,7 +130,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Adventure Experiences in Thailand — Local Companions | Tirak',
       description: 'Join verified local companions for hiking, water sports, and outdoor adventures across Thailand.',
-      canonical: 'https://tirak.app/adventure',
+      canonical: 'https://www.tirak.app/adventure',
     },
     experiences: [
       { icon: Mountain, title: 'Jungle Trekking', description: 'Multi-day hikes through pristine rainforest with expert guides and wild camping.' },
@@ -159,7 +159,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Wellness Experiences in Thailand — Local Companions | Tirak',
       description: 'Rejuvenate with spa treatments, yoga, and meditation led by local wellness companions.',
-      canonical: 'https://tirak.app/wellness',
+      canonical: 'https://www.tirak.app/wellness',
     },
     experiences: [
       { icon: Flower2, title: 'Thai Spa Retreats', description: 'Full-day pampering at world-class spas with herbal compresses and aromatherapy.' },
@@ -188,7 +188,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Nightlife Experiences in Thailand — Local Companions | Tirak',
       description: 'Experience Thailand\'s vibrant nightlife with local companions who know the best spots.',
-      canonical: 'https://tirak.app/nightlife',
+      canonical: 'https://www.tirak.app/nightlife',
     },
     experiences: [
       { icon: PartyPopper, title: 'Rooftop Bar Crawls', description: 'Hit Bangkok\'s iconic skyline bars with a local who gets you the best views and skip the queues.' },
@@ -217,7 +217,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Lifestyle Experiences in Thailand — Local Companions | Tirak',
       description: 'Shop, explore, and experience local lifestyle with Thai companions.',
-      canonical: 'https://tirak.app/lifestyle',
+      canonical: 'https://www.tirak.app/lifestyle',
     },
     experiences: [
       { icon: ShoppingBag, title: 'Boutique Shopping Tours', description: 'Curated walks through independent Thai designer shops and vintage concept stores.' },
@@ -246,7 +246,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Cinema & Film Experiences in Thailand — Local Companions | Tirak',
       description: 'Explore film locations and cinema culture with local companions.',
-      canonical: 'https://tirak.app/cinema',
+      canonical: 'https://www.tirak.app/cinema',
     },
     experiences: [
       { icon: Film, title: 'Film Location Tours', description: 'Visit the beaches, temples, and cityscapes featured in international and Thai films.' },
@@ -275,7 +275,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Events in Thailand — Local Companions | Tirak',
       description: 'Experience festivals, parties, and cultural events with local companions.',
-      canonical: 'https://tirak.app/events',
+      canonical: 'https://www.tirak.app/events',
     },
     experiences: [
       { icon: CalendarDays, title: 'Festival Immersion', description: 'Experience Songkran, Loy Krathong, and Yi Peng with locals who explain every tradition.' },
@@ -304,7 +304,7 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     seo: {
       title: 'Food & Drink Experiences in Thailand — Local Companions | Tirak',
       description: 'Discover authentic Thai cuisine with local food companions.',
-      canonical: 'https://tirak.app/food',
+      canonical: 'https://www.tirak.app/food',
     },
     experiences: [
       { icon: UtensilsCrossed, title: 'Street Food Tours', description: 'Navigate Bangkok\'s legendary street food scene — from Yaowarat to Victory Monument — with a local expert.' },
