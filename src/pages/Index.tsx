@@ -14,20 +14,20 @@ const Index = () => {
       <SEO 
         title="Tirak - Authentic Travel Experiences with Local Companions"
         description="Discover unique travel experiences with verified local companions. Connect with passionate guides who share their culture, stories, and hidden gems."
-        canonical="https://tirak.app/"
+        canonical="https://www.tirak.app/"
         openGraph={{
           'og:title': 'Tirak - Authentic Travel Experiences with Local Companions',
           'og:description': 'Discover unique travel experiences with verified local companions. Connect with passionate guides who share their culture, stories, and hidden gems.',
           'og:type': 'website',
-          'og:url': 'https://tirak.app/',
-          'og:image': 'https://tirak.app/og.jpg',
+          'og:url': 'https://www.tirak.app/',
+          'og:image': 'https://www.tirak.app/og.jpg',
           'og:image:alt': 'Authentic travel with verified local companions in Thailand'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
           'twitter:title': 'Tirak - Authentic Travel Experiences with Local Companions',
           'twitter:description': 'Discover unique travel experiences with verified local companions.',
-          'twitter:image': 'https://tirak.app/og.jpg'
+          'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
       />
       {/* Hero Section */}

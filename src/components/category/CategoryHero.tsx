@@ -35,7 +35,7 @@ const CategoryHero = ({ config }: CategoryHeroProps) => {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tirak.app/' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.tirak.app/' },
             { '@type': 'ListItem', position: 2, name: config.name, item: config.seo.canonical },
           ],
         }}

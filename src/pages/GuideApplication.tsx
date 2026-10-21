@@ -820,7 +820,7 @@ export default function GuideApplication() {
       <SEO
         title="Apply as a Local Guide — Tirak"
         description="Apply to become a Tirak local guide. Submit your experience profile, draft services, and availability for review."
-        canonical="https://tirak.app/apply"
+        canonical="https://www.tirak.app/apply"
         noindex={step === 'receipt'}
       />
 

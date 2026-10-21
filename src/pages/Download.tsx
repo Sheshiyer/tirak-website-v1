@@ -5,20 +5,20 @@ import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 
 export const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.tirak.pineapple';
+export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/hCR6HDud';
 
 export default function Download() {
   return <>
     <SEO title="Get Tirak — Android and iPhone Access"
-      description="Open Tirak on Google Play or ask the team about current iPhone access options."
-      canonical="https://tirak.app/download" />
+      description="Find Tirak on Google Play, check the iPhone TestFlight invitation, or save the website to your Home Screen."
+      canonical="https://www.tirak.app/download" />
     <div className="min-h-screen bg-gradient-to-br from-primary-900 via-primary-800 to-secondary-900 pt-40 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto glass-card p-6 sm:p-8 md:p-12">
           <div className="text-center mb-10">
             <Smartphone className="w-10 h-10 mx-auto mb-4 text-primary" aria-hidden="true" />
             <h1 className="text-4xl md:text-5xl font-inter font-bold text-contrast">Get Tirak</h1>
-            <p className="text-xl text-text-secondary mt-4 max-w-2xl mx-auto">Explore Thailand through local connections. Choose your device’s store below.</p>
-            <p className="text-sm text-text-secondary mt-3">Android availability varies by device and region. Ask us about current iPhone access.</p>
+            <p className="text-xl text-text-secondary mt-4 max-w-2xl mx-auto">Explore Thailand through local connections. Choose how you want to open Tirak.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <section className="glass-card p-6 rounded-2xl flex flex-col gap-4" aria-labelledby="android-heading">
@@ -28,10 +28,15 @@ export default function Download() {
             </section>
             <section className="glass-card p-6 rounded-2xl flex flex-col gap-4" aria-labelledby="ios-heading">
               <h2 id="ios-heading" className="text-2xl font-semibold">iPhone and iPad</h2>
-              <p className="text-text-secondary flex-1">A public App Store listing is not available through this site yet. Contact the Tirak team for current iPhone access options.</p>
-              <Button asChild variant="outline" className="focus-ring"><Link to="/contact">Ask about iPhone access</Link></Button>
+              <p className="text-text-secondary flex-1">Open the iPhone beta invitation in TestFlight. Apple shows whether a tester place and compatible build are available.</p>
+              <Button asChild variant="outline" className="focus-ring"><a href={TESTFLIGHT_URL} target="_blank" rel="noopener noreferrer">Check the TestFlight invitation <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" /></a></Button>
             </section>
           </div>
+          <section className="mt-8 border-t border-white/10 pt-6" aria-labelledby="home-screen-heading">
+            <h2 id="home-screen-heading" className="text-xl font-semibold">Save the website to your Home Screen</h2>
+            <p className="text-text-secondary mt-3">On iPhone or iPad, open the Tirak website in Safari. Tap the Page Menu, then Share (or tap Share directly), choose Add to Home Screen, and tap Add. If Safari offers Open as Web App, leave it selected. The Tirak icon will open the website from your Home Screen.</p>
+            <Button asChild variant="outline" className="focus-ring mt-4"><a href="https://www.tirak.app/">Open the Tirak website</a></Button>
+          </section>
           <section className="mt-8 border-t border-white/10 pt-6" aria-labelledby="download-help-heading">
             <h2 id="download-help-heading" className="text-xl font-semibold">Need help getting started?</h2>
             <p className="text-text-secondary mt-3">If a store link is unavailable for your device or region, <Link className="underline focus-ring" to="/contact">contact the Tirak team</Link>. Include your device type and region; never send your password.</p>
