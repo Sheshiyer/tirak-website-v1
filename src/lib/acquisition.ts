@@ -12,6 +12,19 @@ export function parseCampaign(path: string, search: string): CampaignAttribution
   }
   return Object.keys(result).length > 1 ? result : undefined;
 }
+
+export function guideApplicationCampaignSearch(search: string): string {
+  const attribution = parseCampaign('/apply', search);
+  if (!attribution) return '';
+
+  const params = new URLSearchParams();
+  for (const [query, field] of Object.entries(fields)) {
+    const value = attribution[field];
+    if (value) params.set(query, value);
+  }
+  return `?${params}`;
+}
+
 /** First supported campaign in this tab session. Never stores full URLs, referrers, email or click IDs. */
 export function captureCampaign(path: string, search: string): CampaignAttribution | undefined {
   if (captured) return { ...captured };

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { captureCampaign, parseCampaign, resetCampaignMemoryForTests } from '../lib/acquisition';
+import { captureCampaign, guideApplicationCampaignSearch, parseCampaign, resetCampaignMemoryForTests } from '../lib/acquisition';
 const storage = new Map<string, string>();
 beforeEach(() => { storage.clear(); resetCampaignMemoryForTests(); vi.stubGlobal('sessionStorage', { getItem: (k: string) => storage.get(k) ?? null, setItem: (k: string, v: string) => storage.set(k, v) }); });
 describe('bounded campaign capture', () => {
@@ -13,6 +13,11 @@ describe('bounded campaign capture', () => {
     expect(parseCampaign('/apply', '?utm_campaign=person%40example.com')).toBeUndefined();
     expect(parseCampaign('/apply', '?utm_campaign=' + 'a'.repeat(81))).toBeUndefined();
     expect(parseCampaign('/apply', '')).toBeUndefined();
+  });
+  it('forwards only supported attribution from old guide application links', () => {
+    expect(guideApplicationCampaignSearch('?utm_source=partner&utm_campaign=guide_launch&email=person%40example.invalid&token=private'))
+      .toBe('?utm_source=partner&utm_campaign=guide_launch');
+    expect(guideApplicationCampaignSearch('?utm_source=a&utm_source=b&applicationId=private')).toBe('');
   });
   it('preserves the first campaign across navigation and module-memory reset', () => {
     const first = captureCampaign('/tirak', '?utm_campaign=first');

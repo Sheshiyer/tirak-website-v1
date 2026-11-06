@@ -46,7 +46,7 @@ const FinalCTA = () => {
             </span>
             <span className="flex items-center gap-1.5">
               <Heart className="w-4 h-4 text-primary/70" />
-              Local connections
+              Guided experiences
             </span>
           </div>
         </div>

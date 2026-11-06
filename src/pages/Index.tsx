@@ -11,25 +11,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <SEO 
-        title="Tirak - Authentic Travel Experiences with Local Companions"
-        description="Discover unique travel experiences with verified local companions. Connect with passionate guides who share their culture, stories, and hidden gems."
-        canonical="https://www.tirak.app/"
-        openGraph={{
-          'og:title': 'Tirak - Authentic Travel Experiences with Local Companions',
-          'og:description': 'Discover unique travel experiences with verified local companions. Connect with passionate guides who share their culture, stories, and hidden gems.',
-          'og:type': 'website',
-          'og:url': 'https://www.tirak.app/',
-          'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Authentic travel with verified local companions in Thailand'
-        }}
-        twitter={{
-          'twitter:card': 'summary_large_image',
-          'twitter:title': 'Tirak - Authentic Travel Experiences with Local Companions',
-          'twitter:description': 'Discover unique travel experiences with verified local companions.',
-          'twitter:image': 'https://www.tirak.app/og.jpg'
-        }}
-      />
+      <SEO />
       {/* Hero Section */}
       <section id="home">
         <StreamlinedHero />
@@ -46,7 +28,7 @@ const Index = () => {
       </section>
       
       {/* Companion Stories */}
-      <section id="companion-stories" aria-label="Companion stories">
+      <section id="companion-stories" aria-label="Travel inspiration">
         <CompanionStories />
       </section>
       

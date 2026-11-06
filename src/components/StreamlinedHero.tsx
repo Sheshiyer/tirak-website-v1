@@ -97,7 +97,7 @@ const StreamlinedHero = () => {
             {/* Main Headline - Enhanced Mobile Typography */}
             <div className="space-y-3 sm:space-y-4 lg:space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Discover Thailand with Local Companions
+                Discover Thailand with Local Guides
               </h1>
               
               {/* Rotating Vibes Text - Enhanced Mobile */}
@@ -125,7 +125,7 @@ const StreamlinedHero = () => {
 
             {/* Subtitle - Enhanced Mobile */}
             <p className="text-base sm:text-lg lg:text-xl text-contrast-secondary font-inter leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Connect with verified local companions for authentic adventures, cultural immersion, and unforgettable memories across Thailand.
+              Find guided walks, workshops, and cultural activities across Thailand. Check the Tirak app for current experiences and availability.
             </p>
 
             {/* Enhanced Mobile CTA Section */}
@@ -151,7 +151,7 @@ const StreamlinedHero = () => {
                   className="flex items-center gap-1.5 hover:text-primary transition-colors duration-200"
                 >
                   <Compass className="w-3.5 h-3.5" />
-                  <span>Explore Experiences</span>
+                  <span>Explore Trip Ideas</span>
                 </a>
                 <a
                   href="#companion-stories"
