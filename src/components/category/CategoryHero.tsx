@@ -96,17 +96,17 @@ const CategoryHero = ({ config }: CategoryHeroProps) => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
-                to="/tirak"
+                to="/download"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 style={{ backgroundColor: config.color }}
               >
-                Find a Companion
+                Get the Tirak App
               </Link>
               <a
                 href="#experiences"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-white/90 border border-white/20 hover:bg-white/10 transition-all duration-300"
               >
-                Explore Experiences
+                Explore Trip Ideas
               </a>
             </div>
           </div>

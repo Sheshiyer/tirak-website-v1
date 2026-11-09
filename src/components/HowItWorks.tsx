@@ -4,26 +4,26 @@ import { Users, Compass, MapPin, Sparkles, type LucideIcon } from 'lucide-react'
 const steps: { number: string; title: string; description: string; icon: LucideIcon }[] = [
   {
     number: '01',
-    title: 'Pick a Companion',
-    description: 'Browse verified local guides and find the perfect match for your adventure.',
+    title: 'Choose a Guided Experience',
+    description: 'Browse available walks, workshops, and other activities led by verified local guides.',
     icon: Users,
   },
   {
     number: '02',
-    title: 'Choose a Category',
-    description: 'Select from culture, adventure, wellness, nightlife, and more experiences.',
+    title: 'Request a Booking',
+    description: 'Choose a date and time for the experience and send a request to the guide.',
     icon: Compass,
   },
   {
     number: '03',
-    title: 'Set Time & Meeting Point',
-    description: 'Coordinate your schedule and choose a convenient meeting location.',
+    title: 'Confirm the Details',
+    description: 'After the guide confirms, use the booking chat to coordinate timing and the meeting point.',
     icon: MapPin,
   },
   {
     number: '04',
     title: 'Enjoy Your Experience!',
-    description: 'Discover authentic Thailand with your personal local guide.',
+    description: 'Meet your guide and take part in the activity you booked.',
     icon: Sparkles,
   },
 ];

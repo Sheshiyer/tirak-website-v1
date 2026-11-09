@@ -89,7 +89,7 @@ const Footer = () => {
                   to="/tirak" 
                   className="text-contrast-secondary hover:text-primary transition-colors duration-200 text-sm hover:translate-x-1 transform inline-block"
                 >
-                  Find Companions
+                  Plan a Guided Experience
                 </Link>
               </li>
               <li>

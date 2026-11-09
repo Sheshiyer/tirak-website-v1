@@ -14,25 +14,7 @@ import { CultureBlob, AdventureBlob, WellnessBlob } from '@/components/ui/blob-s
 const TirakLanding = () => {
   return (
     <div className="bg-sunset min-h-screen text-foreground">
-      <SEO 
-        title="Tirak - Connect with Local Travel Companions in Thailand"
-        description="Experience Thailand through the eyes of locals. Find verified companions for authentic adventures, cultural immersion, and unforgettable travel memories."
-        canonical="https://www.tirak.app/tirak"
-        openGraph={{
-          'og:title': 'Tirak - Connect with Local Travel Companions in Thailand',
-          'og:description': 'Experience Thailand through the eyes of locals. Find verified companions for authentic adventures and cultural immersion.',
-          'og:type': 'website',
-          'og:url': 'https://www.tirak.app/tirak',
-          'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Connect with local travel companions in Thailand'
-        }}
-        twitter={{
-          'twitter:card': 'summary_large_image',
-          'twitter:title': 'Tirak - Connect with Local Travel Companions in Thailand',
-          'twitter:description': 'Experience Thailand with verified companions.',
-          'twitter:image': 'https://www.tirak.app/og.jpg'
-        }}
-      />
+      <SEO />
       {/* Hero */}
       <StreamlinedHero />
       
@@ -60,7 +42,7 @@ const TirakLanding = () => {
                 Plan Your Next Local Experience
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-contrast-secondary font-inter leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Check the existing store links for your device, explore Thailand travel ideas, or get email updates from Tirak. Guide and service availability must be confirmed in the app.
+                Explore Thailand travel ideas, open Tirak on your device, or get email updates. Check the app for bookable experiences led by local guides.
               </p>
               
               {/* Enhanced Mobile Benefits List */}
@@ -75,7 +57,7 @@ const TirakLanding = () => {
                 </div>
                 <div className="flex items-center space-x-2 p-2 rounded-lg bg-white/5">
                   <svg className="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                  <span>Local connections</span>
+                  <span>Guided experiences</span>
                 </div>
                 <div className="flex items-center space-x-2 p-2 rounded-lg bg-white/5">
                   <svg className="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>

@@ -34,7 +34,7 @@ const CityChiangMai = () => {
       />
       <div className="container mx-auto px-6 max-w-5xl">
         <h1 className="text-responsive-lg font-bold font-inter text-contrast mb-4">Chiang Mai Travel Ideas</h1>
-        <p className="text-lg text-contrast-secondary mb-8">Discover Chiang Mai with locals who guide you through temples, markets, and mountain retreats. Match by vibe.</p>
+        <p className="text-lg text-contrast-secondary mb-8">Plan your Chiang Mai trip with ideas for temple walks, market visits, and days in the mountains.</p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="glass-card rounded-xl p-6">
             <h2 className="text-xl font-semibold">Popular Vibes</h2>
@@ -49,15 +49,15 @@ const CityChiangMai = () => {
           <div className="glass-card rounded-xl p-6">
             <h2 className="text-xl font-semibold">Plan Your Day</h2>
             <ul className="mt-3 space-y-2 text-contrast-secondary">
-              <li>Set meeting point and schedule</li>
-              <li>Chat with your companion</li>
-              <li>Enjoy authentic experiences</li>
+              <li>Choose a guided experience in the Tirak app</li>
+              <li>Request a date and time</li>
+              <li>Use the confirmed booking chat to plan where to meet</li>
             </ul>
           </div>
         </div>
-        <p className="mt-6 text-sm text-contrast-secondary">These are planning ideas. Check current guide profiles, services and availability in the app before making arrangements.</p>
+        <p className="mt-6 text-sm text-contrast-secondary">These are planning ideas. Check the Tirak app for available experiences and the guides who lead them.</p>
         <div className="mt-10">
-          <Link to="/download" className="inline-block px-6 py-3 rounded-xl bg-button text-primary-foreground font-semibold">Check App and Guide Availability</Link>
+          <Link to="/download" className="inline-block px-6 py-3 rounded-xl bg-button text-primary-foreground font-semibold">Get the Tirak App</Link>
         </div>
       </div>
       <Footer />

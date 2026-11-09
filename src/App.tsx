@@ -3,7 +3,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { captureCampaign } from '@/lib/acquisition';
+import { captureCampaign, guideApplicationCampaignSearch } from '@/lib/acquisition';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Index from './pages/Index';
 import TirakLanding from './pages/TirakLanding';
@@ -26,7 +26,6 @@ import CategoryFood from './pages/CategoryFood';
 import CategoryLifestyle from './pages/CategoryLifestyle';
 import CategoryCinema from './pages/CategoryCinema';
 import CategoryEvents from './pages/CategoryEvents';
-import SupplierOnboarding from './pages/SupplierOnboarding';
 import GuideApplication from './pages/GuideApplication';
 
 const queryClient = new QueryClient({
@@ -47,6 +46,11 @@ function ScrollToTopAndFocus() {
     if (el) el.focus();
   }, [location.pathname, location.search]);
   return null;
+}
+
+function LegacySupplierOnboardingRedirect() {
+  const { search } = useLocation();
+  return <Navigate to={{ pathname: '/apply', search: guideApplicationCampaignSearch(search) }} replace />;
 }
 
 function App() {
@@ -79,7 +83,7 @@ function App() {
                   <Route path="/lifestyle" element={<CategoryLifestyle />} />
                   <Route path="/cinema" element={<CategoryCinema />} />
                   <Route path="/events" element={<CategoryEvents />} />
-                  <Route path="/supplier-onboarding" element={<SupplierOnboarding />} />
+                  <Route path="/supplier-onboarding" element={<LegacySupplierOnboardingRedirect />} />
                   <Route path="/apply" element={<GuideApplication />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

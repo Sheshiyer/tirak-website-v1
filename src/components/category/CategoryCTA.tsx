@@ -31,16 +31,16 @@ const CategoryCTA = ({ config }: CategoryCTAProps) => {
               Ready for your {config.name} adventure?
             </h2>
             <p className="text-white/60 text-base sm:text-lg mb-8 max-w-xl mx-auto">
-              Connect with verified local companions and create unforgettable {config.name.toLowerCase()} experiences in Thailand.
+              Check the Tirak app for available guided {config.name.toLowerCase()} experiences in Thailand.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/tirak"
+                to="/download"
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 style={{ backgroundColor: config.color }}
               >
-                Find a Companion
+                Get the Tirak App
               </Link>
               <Link
                 to="/"

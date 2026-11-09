@@ -28,9 +28,9 @@ export default function Download() {
             </section>
             <section className="glass-card p-6 rounded-2xl flex flex-col gap-4" aria-labelledby="ios-heading">
               <h2 id="ios-heading" className="text-2xl font-semibold">iPhone and iPad web app</h2>
-              <p className="text-text-secondary">Open the Tirak website in Safari, then save it to your Home Screen for easy access with the Tirak icon.</p>
+              <p className="text-text-secondary">Open the Tirak app in Safari to sign in, check available guided experiences, or save the app to your Home Screen.</p>
               <p className="text-text-secondary flex-1">Tap the Page Menu, then Share (or tap Share directly), choose Add to Home Screen, and tap Add. If Safari offers Open as Web App, leave it selected.</p>
-              <Button asChild variant="outline" className="focus-ring"><a href="https://www.tirak.app/">Open the Tirak web app</a></Button>
+              <Button asChild variant="outline" className="focus-ring"><a href="https://app.tirak.app/">Open the Tirak web app</a></Button>
             </section>
           </div>
           <section className="mt-8 border-t border-white/10 pt-6" aria-labelledby="testflight-heading">
