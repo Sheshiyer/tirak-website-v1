@@ -16,7 +16,7 @@ const NotFound = () => {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <SEO
         title="Page Not Found — Tirak"
-        description="The page you're looking for doesn't exist. Return to Tirak to discover authentic travel experiences with local companions."
+        description="The page you're looking for doesn't exist. Return to Tirak to discover cultural experiences in Thailand with local guides."
         canonical="https://www.tirak.app/404"
         noindex={true}
       />

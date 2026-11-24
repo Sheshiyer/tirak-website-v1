@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tirak.app | Vendor Partner Onboarding</title>
+    <title>Tirak.app | Local Guide Onboarding</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -170,7 +170,7 @@
 <div class="container">
     <div class="header">
         <h1>Join Tirak.app</h1>
-        <p>Thailand's premier platform for curated travel and lifestyle experiences. Register below to reach thousands of high-intent travelers.</p>
+        <p>Tirak connects travelers with local guides for cultural experiences in Thailand, starting with a soft launch in Bangkok. Founding guides pay 0% commission until 7 March 2027. During the soft launch, in-app payments are switched off and travelers pay you in cash at the meeting point.</p>
     </div>
 
     <form action="#" method="POST" enctype="multipart/form-data" id="vendorForm">
@@ -289,10 +289,10 @@
 
         <div class="checkbox-group">
             <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">I agree to be contacted by the Tirak app team regarding a vendor partnership and confirm the information provided is accurate.</label>
+            <label for="consent">I agree to be contacted by the Tirak app team about guiding with Tirak and confirm the information provided is accurate.</label>
         </div>
 
-        <button type="submit">Submit Vendor Application</button>
+        <button type="submit">Submit Guide Application</button>
     </form>
 </div>
 
@@ -313,15 +313,15 @@
         // Send the data to Google Sheets
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                alert('Success! Your vendor application has been submitted to the Tirak team.');
+                alert('Success! Your guide application has been submitted to the Tirak team.');
                 form.reset(); // Clear the form
-                submitButton.innerHTML = 'Submit Vendor Application'; // Reset button
+                submitButton.innerHTML = 'Submit Guide Application'; // Reset button
                 submitButton.disabled = false;
             })
             .catch(error => {
                 console.error('Error!', error.message);
                 alert('There was an error submitting the form. Please try again.');
-                submitButton.innerHTML = 'Submit Vendor Application';
+                submitButton.innerHTML = 'Submit Guide Application';
                 submitButton.disabled = false;
             });
     });

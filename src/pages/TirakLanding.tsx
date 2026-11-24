@@ -42,7 +42,7 @@ const TirakLanding = () => {
                 Plan Your Next Local Experience
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-contrast-secondary font-inter leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Explore Thailand travel ideas, open Tirak on your device, or get email updates. Check the app for bookable experiences led by local guides.
+                Explore Thailand travel ideas, open Tirak on your device, or get email updates. Check the app for cultural experiences led by local guides.
               </p>
               
               {/* Enhanced Mobile Benefits List */}
@@ -117,7 +117,7 @@ const TirakLanding = () => {
         <CompanionStories />
       </section>
       
-      {/* Vendor Onboarding - Enhanced Mobile Layout */}
+      {/* Guide Onboarding - Enhanced Mobile Layout */}
       <section id="for-guides" className="py-12 md:py-16 lg:py-20" aria-labelledby="local-applications-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -126,7 +126,7 @@ const TirakLanding = () => {
               <span className="gradient-text ml-2 block sm:inline">By Locals</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-contrast-secondary font-inter max-w-2xl mx-auto">
-              Apply as an individual guide to share your local knowledge. Your profile and services are reviewed before publication.
+              Apply as an individual local guide to share cultural experiences in Thailand. Your profile and services are reviewed before publication. Founding guides pay 0% commission until 7 March 2027.
             </p>
           </div>
         </div>

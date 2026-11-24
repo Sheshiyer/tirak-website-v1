@@ -832,7 +832,7 @@ export default function GuideApplication() {
                 Become a Tirak Guide
               </h1>
               <p className="text-contrast-secondary text-base sm:text-lg">
-                Apply as an individual local guide. After approval, activate your account and complete profile verification before publishing your services. The current guide trial lasts 30 days. Payments are not available yet.
+                Apply as an individual local guide. After approval, activate your account and complete profile verification before publishing your services. The current guide trial lasts 30 days. Founding guides pay 0% commission until 7 March 2027. In-app payments are switched off during the soft launch, so travelers pay you in cash at the meeting point.
               </p>
             </div>
 
@@ -1269,7 +1269,7 @@ export default function GuideApplication() {
                   Identity Verification Documents (Private)
                 </h2>
                 <p className="text-sm text-contrast-secondary">
-                  Uploaded identity documents are stored in protected private storage and accessed exclusively by verified administrators.
+                  Uploaded identity documents are stored in protected private storage and accessed only by authorized members of the Tirak team.
                 </p>
               </div>
 

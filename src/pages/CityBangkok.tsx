@@ -6,21 +6,21 @@ const CityBangkok = () => {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <SEO
-        title="Bangkok Local Companions — Authentic Experiences | Tirak"
-        description="Explore Bangkok with verified local companions. Culture, street food, temples, nightlife, and hidden gems tailored to your vibe."
+        title="Bangkok Local Guides — Authentic Experiences | Tirak"
+        description="Explore Bangkok with local guides, ID-checked by the Tirak team. Culture, street food, temples, nightlife, and hidden gems for your trip."
         canonical="https://www.tirak.app/bangkok"
         openGraph={{
-          'og:title': 'Bangkok Local Companions — Authentic Experiences | Tirak',
-          'og:description': 'Explore Bangkok with verified local companions. Culture, street food, temples, nightlife, and hidden gems.',
+          'og:title': 'Bangkok Local Guides — Authentic Experiences | Tirak',
+          'og:description': 'Explore Bangkok with local guides, ID-checked by the Tirak team. Culture, street food, temples, nightlife, and hidden gems.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/bangkok',
           'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Explore Bangkok with local companions on Tirak'
+          'og:image:alt': 'Explore Bangkok with local guides on Tirak'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
-          'twitter:title': 'Bangkok Local Companions | Tirak',
-          'twitter:description': 'Culture, street food, temples, nightlife — explore Bangkok with verified locals.',
+          'twitter:title': 'Bangkok Local Guides | Tirak',
+          'twitter:description': 'Culture, street food, temples, nightlife — explore Bangkok with local guides.',
           'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
         jsonLd={{

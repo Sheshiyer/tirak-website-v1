@@ -28,7 +28,7 @@ const FinalCTA = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-10 max-w-lg mx-auto">
-            Plan your Thailand trip, check app availability, or apply to share your local knowledge as a guide.
+            Find a local guide for a cultural experience in Thailand, or apply to share your local knowledge as a guide.
           </p>
 
           {/* Email signup */}

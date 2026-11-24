@@ -6,21 +6,21 @@ const CityChiangMai = () => {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <SEO
-        title="Chiang Mai Local Companions — Culture & Nature | Tirak"
-        description="Explore Chiang Mai with verified local companions. Temples, old city, markets, and nature experiences tailored to your vibe."
+        title="Chiang Mai Local Guides — Culture & Nature | Tirak"
+        description="Explore Chiang Mai with local guides, ID-checked by the Tirak team. Temples, old city, markets, and nature experiences for your trip."
         canonical="https://www.tirak.app/chiang-mai"
         openGraph={{
-          'og:title': 'Chiang Mai Local Companions — Culture & Nature | Tirak',
-          'og:description': 'Explore Chiang Mai with verified local companions. Temples, markets, and mountain retreats.',
+          'og:title': 'Chiang Mai Local Guides — Culture & Nature | Tirak',
+          'og:description': 'Explore Chiang Mai with local guides, ID-checked by the Tirak team. Temples, markets, and mountain retreats.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/chiang-mai',
           'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Explore Chiang Mai with local companions on Tirak'
+          'og:image:alt': 'Explore Chiang Mai with local guides on Tirak'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
-          'twitter:title': 'Chiang Mai Local Companions | Tirak',
-          'twitter:description': 'Temples, old city, markets, and nature — explore Chiang Mai with verified locals.',
+          'twitter:title': 'Chiang Mai Local Guides | Tirak',
+          'twitter:description': 'Temples, old city, markets, and nature — explore Chiang Mai with local guides.',
           'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
         jsonLd={{

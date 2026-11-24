@@ -125,7 +125,7 @@ const StreamlinedHero = () => {
 
             {/* Subtitle - Enhanced Mobile */}
             <p className="text-base sm:text-lg lg:text-xl text-contrast-secondary font-inter leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Find guided walks, workshops, and cultural activities across Thailand. Check the Tirak app for current experiences and availability.
+              Local guides for cultural experiences in Thailand, starting in Bangkok. Find guided walks, workshops, and local activities, and check the Tirak app for current availability.
             </p>
 
             {/* Enhanced Mobile CTA Section */}
