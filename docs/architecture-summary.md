@@ -1,5 +1,7 @@
 # Architecture Summary
 
+> Historical (December 2025). The `api/` serverless handlers and `lovable-tagger` mentioned here were removed in November 2026; forms now submit to the Tirak Core API (see `README.md`).
+
 ## High-Level Diagram
 
 ```mermaid
