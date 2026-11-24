@@ -99,8 +99,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: pimCultureVideo,
     poster: pimCulturePoster,
     seo: {
-      title: 'Culture Experiences in Thailand — Local Companions | Tirak',
-      description: 'Join verified local companions for cultural immersion: temples, traditions, markets, and heritage across Thailand.',
+      title: 'Culture Experiences in Thailand — Local Guides | Tirak',
+      description: 'Cultural experiences with local guides: temples, traditions, markets, and heritage across Thailand.',
       canonical: 'https://www.tirak.app/culture',
     },
     experiences: [
@@ -128,8 +128,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: maleeIslandVideo,
     poster: maleeIslandPoster,
     seo: {
-      title: 'Adventure Experiences in Thailand — Local Companions | Tirak',
-      description: 'Join verified local companions for hiking, water sports, and outdoor adventures across Thailand.',
+      title: 'Adventure Experiences in Thailand — Local Guides | Tirak',
+      description: 'Hiking, water sports, and outdoor experiences with local guides across Thailand.',
       canonical: 'https://www.tirak.app/adventure',
     },
     experiences: [
@@ -157,8 +157,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: sudaSpaVideo,
     poster: sudaSpaPoster,
     seo: {
-      title: 'Wellness Experiences in Thailand — Local Companions | Tirak',
-      description: 'Rejuvenate with spa treatments, yoga, and meditation led by local wellness companions.',
+      title: 'Wellness Experiences in Thailand — Local Guides | Tirak',
+      description: 'Rejuvenate with spa treatments, yoga, and meditation with local guides.',
       canonical: 'https://www.tirak.app/wellness',
     },
     experiences: [
@@ -186,8 +186,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: tunRooftopVideo,
     poster: tunRooftopPoster,
     seo: {
-      title: 'Nightlife Experiences in Thailand — Local Companions | Tirak',
-      description: 'Experience Thailand\'s vibrant nightlife with local companions who know the best spots.',
+      title: 'Nightlife Experiences in Thailand — Local Guides | Tirak',
+      description: 'Experience Thailand\'s vibrant nightlife with local guides who know the best spots.',
       canonical: 'https://www.tirak.app/nightlife',
     },
     experiences: [
@@ -215,8 +215,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: daoBeachVideo,
     poster: daoBeachPoster,
     seo: {
-      title: 'Lifestyle Experiences in Thailand — Local Companions | Tirak',
-      description: 'Shop, explore, and experience local lifestyle with Thai companions.',
+      title: 'Lifestyle Experiences in Thailand — Local Guides | Tirak',
+      description: 'Shop, explore, and experience local lifestyle with Thai local guides.',
       canonical: 'https://www.tirak.app/lifestyle',
     },
     experiences: [
@@ -244,8 +244,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: somCookingVideo,
     poster: somCookingPoster,
     seo: {
-      title: 'Cinema & Film Experiences in Thailand — Local Companions | Tirak',
-      description: 'Explore film locations and cinema culture with local companions.',
+      title: 'Cinema & Film Experiences in Thailand — Local Guides | Tirak',
+      description: 'Explore film locations and cinema culture with local guides.',
       canonical: 'https://www.tirak.app/cinema',
     },
     experiences: [
@@ -273,8 +273,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: tonPartyVideo,
     poster: tonPartyPoster,
     seo: {
-      title: 'Events in Thailand — Local Companions | Tirak',
-      description: 'Experience festivals, parties, and cultural events with local companions.',
+      title: 'Events in Thailand — Local Guides | Tirak',
+      description: 'Experience festivals and cultural events with local guides.',
       canonical: 'https://www.tirak.app/events',
     },
     experiences: [
@@ -302,8 +302,8 @@ export const categoryConfigs: Record<string, CategoryConfig> = {
     video: niranStreetfoodVideo,
     poster: niranStreetfoodPoster,
     seo: {
-      title: 'Food & Drink Experiences in Thailand — Local Companions | Tirak',
-      description: 'Discover authentic Thai cuisine with local food companions.',
+      title: 'Food & Drink Experiences in Thailand — Local Guides | Tirak',
+      description: 'Discover authentic Thai cuisine with local food guides.',
       canonical: 'https://www.tirak.app/food',
     },
     experiences: [

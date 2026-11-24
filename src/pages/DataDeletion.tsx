@@ -313,7 +313,7 @@ export function DataDeletion() {
                     <option value="">Please select a reason</option>
                     <option value="no-longer-using">I no longer use Tirak or travel services</option>
                     <option value="privacy-concerns">I have concerns about data privacy and security</option>
-                    <option value="found-alternative">I found a better alternative travel companion service</option>
+                    <option value="found-alternative">I found a better alternative local guide service</option>
                     <option value="account-security">I experienced account security issues</option>
                     <option value="service-quality">I'm unsatisfied with the service quality</option>
                     <option value="too-complex">The app is too complex or difficult to use</option>

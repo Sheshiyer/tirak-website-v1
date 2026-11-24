@@ -5,12 +5,12 @@ const Privacy = () => {
   return (
     <>
       <SEO
-        title="Privacy Policy — Tirak Travel Companion Platform"
-        description="Learn how Tirak protects your privacy and handles your personal data. Comprehensive privacy policy for our travel companion marketplace platform."
+        title="Privacy Policy — Tirak Local Guides"
+        description="Learn how Tirak protects your privacy and handles your personal data. Privacy policy for our platform connecting travelers with local guides for cultural experiences in Thailand."
         canonical="https://www.tirak.app/privacy"
         openGraph={{
           'og:title': 'Privacy Policy — Tirak',
-          'og:description': 'How Tirak protects your privacy and handles personal data on our travel companion platform.',
+          'og:description': 'How Tirak protects your privacy and handles personal data on our local guides platform.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/privacy',
           'og:image': 'https://www.tirak.app/og.jpg'
@@ -69,7 +69,7 @@ const Privacy = () => {
                 <p className="text-contrast-secondary leading-relaxed mb-4">We use your information to:</p>
                 <ul className="list-disc pl-6 text-contrast-secondary space-y-2">
                   <li>Provide and maintain our Service</li>
-                  <li>Connect you with local travel companions</li>
+                  <li>Connect you with local guides for cultural experiences</li>
                   <li>Process transactions and payments</li>
                   <li>Send you updates, notifications, and marketing communications</li>
                   <li>Improve our Service and develop new features</li>
@@ -82,7 +82,7 @@ const Privacy = () => {
                 <h2 className="text-xl font-semibold font-inter text-contrast mb-4">4. Information Sharing and Disclosure</h2>
                 <p className="text-contrast-secondary leading-relaxed mb-4">We may share your information in the following circumstances:</p>
                 <ul className="list-disc pl-6 text-contrast-secondary space-y-2">
-                  <li><strong>With Travel Companions:</strong> Profile information necessary for booking and communication</li>
+                  <li><strong>With Local Guides:</strong> Profile information necessary for booking and communication</li>
                   <li><strong>Service Providers:</strong> Third-party vendors who assist in operating our Service</li>
                   <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
                   <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>

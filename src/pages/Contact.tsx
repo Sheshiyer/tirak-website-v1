@@ -186,16 +186,16 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen pt-40 pb-16">
       <SEO
-        title="Contact Us — Tirak Travel Companion Platform"
-        description="Get in touch with Tirak for support, partnerships, or questions about our travel companion platform connecting travelers with local guides in Thailand."
+        title="Contact Us — Tirak Local Guides"
+        description="Get in touch with Tirak for support, partnerships, or questions about connecting with local guides for cultural experiences in Thailand."
         canonical="https://www.tirak.app/contact"
         openGraph={{
-          'og:title': 'Contact Us — Tirak Travel Companion Platform',
+          'og:title': 'Contact Us — Tirak Local Guides',
           'og:description': 'Reach out for support, partnerships, or questions about connecting with local guides in Thailand.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/contact',
           'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Contact Tirak travel companion platform'
+          'og:image:alt': 'Contact Tirak, local guides for cultural experiences in Thailand'
         }}
         twitter={{
           'twitter:card': 'summary',

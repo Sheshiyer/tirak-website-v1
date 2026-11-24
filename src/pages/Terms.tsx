@@ -5,12 +5,12 @@ const Terms = () => {
   return (
     <>
       <SEO
-        title="Terms of Service — Tirak Travel Companion Platform"
-        description="Read Tirak's terms and conditions for using our travel companion marketplace. User agreements, service guidelines, and legal terms for travelers and guides."
+        title="Terms of Service — Tirak Local Guides for Cultural Experiences in Thailand"
+        description="Read Tirak's terms and conditions for using our platform for local guides and cultural experiences in Thailand. User agreements, service guidelines, and legal terms for travelers and guides."
         canonical="https://www.tirak.app/terms"
         openGraph={{
           'og:title': 'Terms of Service — Tirak',
-          'og:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
+          'og:description': 'Terms and conditions for using Tirak to book local guides for cultural experiences in Thailand.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/terms',
           'og:image': 'https://www.tirak.app/og.jpg'
@@ -18,7 +18,7 @@ const Terms = () => {
         twitter={{
           'twitter:card': 'summary',
           'twitter:title': 'Terms of Service — Tirak',
-          'twitter:description': 'Terms and conditions for using the Tirak travel companion marketplace.',
+          'twitter:description': 'Terms and conditions for using Tirak to book local guides for cultural experiences in Thailand.',
           'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
       />
@@ -56,13 +56,13 @@ const Terms = () => {
               <section>
                 <h2 className="text-xl font-semibold font-inter text-contrast mb-4">2. Description of Service</h2>
                 <p className="text-contrast-secondary leading-relaxed mb-4">
-                  Tirak is a platform that connects travelers with local companions for authentic travel experiences. Our service includes:
+                  Tirak is a platform that connects travelers with local guides for cultural experiences in Thailand. Our service includes:
                 </p>
                 <ul className="list-disc pl-6 text-contrast-secondary space-y-2">
-                  <li>Matching travelers with verified local companions</li>
-                  <li>Secure booking and payment processing</li>
+                  <li>Connecting travelers with local guides who are ID-checked by the Tirak team</li>
+                  <li>Booking requests and confirmations (in-app payments are switched off during the soft launch)</li>
                   <li>Communication tools and trip planning features</li>
-                  <li>Safety and verification systems</li>
+                  <li>ID checks of local guides by the Tirak team</li>
                   <li>Customer support and dispute resolution</li>
                 </ul>
               </section>
@@ -100,9 +100,9 @@ const Terms = () => {
                   When you book a travel experience through Tirak:
                 </p>
                 <ul className="list-disc pl-6 text-contrast-secondary space-y-2">
-                  <li>You enter into a contract with the local companion, not Tirak</li>
-                  <li>Payment is processed securely through our platform</li>
-                  <li>Cancellation policies vary by experience and companion</li>
+                  <li>You enter into a contract with the local guide, not Tirak</li>
+                  <li>During the soft launch, in-app payments are switched off and you pay the guide in cash at the meeting point</li>
+                  <li>Cancellation policies vary by experience and guide</li>
                   <li>Refunds are subject to our refund policy</li>
                   <li>You are responsible for any additional costs during the experience</li>
                 </ul>
@@ -111,7 +111,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-xl font-semibold font-inter text-contrast mb-4">6. Safety and Verification</h2>
                 <p className="text-contrast-secondary leading-relaxed">
-                  While we implement verification processes and safety measures, you acknowledge that travel involves inherent risks. You are responsible for your own safety and should exercise reasonable caution when meeting and traveling with companions.
+                  While the Tirak team ID-checks local guides, you acknowledge that travel involves inherent risks. You are responsible for your own safety and should exercise reasonable caution when meeting and traveling with guides.
                 </p>
               </section>
 

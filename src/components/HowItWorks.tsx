@@ -5,7 +5,7 @@ const steps: { number: string; title: string; description: string; icon: LucideI
   {
     number: '01',
     title: 'Choose a Guided Experience',
-    description: 'Browse available walks, workshops, and other activities led by verified local guides.',
+    description: 'Browse cultural walks, workshops, and other experiences led by local guides who are ID-checked by the Tirak team.',
     icon: Users,
   },
   {
@@ -23,7 +23,7 @@ const steps: { number: string; title: string; description: string; icon: LucideI
   {
     number: '04',
     title: 'Enjoy Your Experience!',
-    description: 'Meet your guide and take part in the activity you booked.',
+    description: 'Meet your guide at the meeting point and pay them in cash for the experience you booked.',
     icon: Sparkles,
   },
 ];

@@ -6,21 +6,21 @@ const CityPhuket = () => {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <SEO
-        title="Phuket Local Companions — Beaches & Adventure | Tirak"
-        description="Explore Phuket with verified local companions. Beaches, island trips, nightlife, and adventure tailored to your vibe."
+        title="Phuket Local Guides — Beaches & Adventure | Tirak"
+        description="Explore Phuket with local guides, ID-checked by the Tirak team. Beaches, island trips, nightlife, and adventure for your trip."
         canonical="https://www.tirak.app/phuket"
         openGraph={{
-          'og:title': 'Phuket Local Companions — Beaches & Adventure | Tirak',
-          'og:description': 'Explore Phuket with verified local companions. Beaches, island trips, and vibrant nightlife.',
+          'og:title': 'Phuket Local Guides — Beaches & Adventure | Tirak',
+          'og:description': 'Explore Phuket with local guides, ID-checked by the Tirak team. Beaches, island trips, and vibrant nightlife.',
           'og:type': 'website',
           'og:url': 'https://www.tirak.app/phuket',
           'og:image': 'https://www.tirak.app/og.jpg',
-          'og:image:alt': 'Explore Phuket with local companions on Tirak'
+          'og:image:alt': 'Explore Phuket with local guides on Tirak'
         }}
         twitter={{
           'twitter:card': 'summary_large_image',
-          'twitter:title': 'Phuket Local Companions | Tirak',
-          'twitter:description': 'Beaches, island trips, nightlife — explore Phuket with verified locals.',
+          'twitter:title': 'Phuket Local Guides | Tirak',
+          'twitter:description': 'Beaches, island trips, nightlife — explore Phuket with local guides.',
           'twitter:image': 'https://www.tirak.app/og.jpg'
         }}
         jsonLd={{

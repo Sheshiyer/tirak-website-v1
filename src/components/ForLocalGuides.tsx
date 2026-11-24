@@ -12,7 +12,7 @@ const features = [
   {
     icon: MessageCircle,
     title: 'Real-time Chat with Travelers',
-    description: 'Connect instantly with tourists and build relationships before meeting.',
+    description: 'Message travelers to agree on the details before you meet.',
   },
   {
     icon: Star,
@@ -40,7 +40,7 @@ const ForLocalGuides = () => {
                 </span>
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-contrast-secondary font-inter leading-relaxed max-w-xl">
-                Guide travelers through authentic local experiences and offer your knowledge of Thailand. Bookings and earnings are not guaranteed.
+                Lead travelers through cultural experiences and share your knowledge of Thailand. Founding guides pay 0% commission until 7 March 2027. During the soft launch, travelers pay you in cash at the meeting point. Bookings and earnings are not guaranteed.
               </p>
             </div>
 
@@ -144,8 +144,8 @@ const ForLocalGuides = () => {
                 <div className="flex items-center space-x-2">
                   <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" />
                   <div>
-                    <div className="text-xs sm:text-sm font-bold text-contrast">Your rates</div>
-                    <div className="text-xs text-contrast-secondary">Your services</div>
+                    <div className="text-xs sm:text-sm font-bold text-contrast">0% commission</div>
+                    <div className="text-xs text-contrast-secondary">Founding guides, until 7 Mar 2027</div>
                   </div>
                 </div>
               </div>
