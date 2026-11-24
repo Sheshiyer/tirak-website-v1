@@ -1,7 +1,12 @@
-# PROJECT MEMORY
+# PROJECT MEMORY (historical, not maintained)
+
+> This log is kept for history only and is no longer updated. Entries date from
+> 2025 and some describe code that has since been removed or replaced (for
+> example the `api/` serverless handlers and the original intake forms). For
+> current behaviour see `README.md` and `docs/core-release-preparation-20261107.md`.
 
 ## Overview
-Tirak Dream Journeys - A comprehensive dream journal and lucid dreaming application with modern UI/UX design, featuring floating menus, consistent theming, and cohesive brand appearance across all pages.
+Tirak website: the public marketing and intake site for Tirak, a platform for booking local guides and guided experiences in Thailand. (An earlier version of this line described an unrelated dream-journal app; that was wrong.)
 
 ## Completed Tasks
 
